@@ -532,106 +532,325 @@
             .legend-container { bottom: 40px; padding: 10px 15px; }
         }
 
-        /* Additional Mobile Responsive Adjustments */
+        /* Mobile Responsive Adjustments - Tablet */
         @media (max-width: 768px) {
-            .search-input { font-size: 12px; padding: 10px 14px; }
-            .search-result-item { font-size: 12px; padding: 10px 14px; }
-            .timeline-container { height: 50vh; }
-            .description-box { top: 280px; left: 20px; max-width: calc(100vw - 40px); max-height: calc(100vh - 360px); }
-            .stats-box { top: 80px; left: 20px; max-width: calc(100vw - 40px); max-height: calc(100vh - 160px); }
-            .reset-button { bottom: 20px; left: 20px; width: clamp(180px, 85vw, 220px); }
-            .fade-top-overlay { height: 120px; }
-            #chart-container .box-style { 
-                left: 20px !important; 
-                top: 100px !important; 
-                transform: none !important; 
-                width: clamp(180px, 85vw, 250px) !important; 
-                max-height: 40vh !important; 
+            .title { 
+                font-size: 1.3em !important; 
+                top: 15px !important; 
+                left: 15px !important; 
             }
-            #chart-container .box-style h3 { font-size: 14px !important; }
-            #chart-container .box-style p { font-size: 11px !important; }
-            #chart-container > div:last-child {
-                bottom: 20px !important;
-                padding: 8px 12px !important;
-                gap: 8px !important;
+            .nav-container { 
+                top: 15px !important; 
+                gap: 6px !important; 
+                padding: 6px !important;
             }
-            .chart-btn { padding: 6px 12px !important; font-size: 11px !important; }
-        }
-
-        @media (max-width: 480px) {
-            .landing-paragraph { font-size: 13px !important; line-height: 1.6 !important; }
-            .unesco-link { font-size: 11px !important; }
-            .uncover-btn { padding: 12px 28px !important; font-size: 13px !important; }
-            .title { font-size: 1em !important; top: 12px !important; left: 12px !important; }
-            .nav-container { top: 12px !important; gap: 6px !important; padding: 5px !important; }
-            .nav-btn { padding: 6px 12px !important; font-size: 10px !important; }
-            .search-container { top: 60px !important; right: 12px !important; left: 12px !important; width: auto !important; }
-            .search-input { font-size: 11px !important; padding: 8px 12px !important; }
-            .search-result-item { font-size: 11px !important; padding: 8px 12px !important; }
-            .timeline-container { bottom: 30px !important; right: 15px !important; height: 40vh !important; }
-            .year-label { font-size: 14px !important; }
-            .legend-container { bottom: 30px !important; padding: 8px 12px !important; }
-            .legend-gradient { width: 150px !important; height: 12px !important; }
-            .description-box { 
-                top: 250px !important; 
-                left: 12px !important; 
-                right: 12px !important;
-                max-width: calc(100vw - 24px) !important; 
-                max-height: calc(100vh - 330px) !important;
-                padding: 15px !important;
+            .nav-btn { 
+                padding: 8px 16px !important; 
+                font-size: 11px !important; 
             }
-            .description-box h2 { font-size: 16px !important; }
-            .description-box p { font-size: 11px !important; }
-            .stats-box { 
+            .search-container { 
                 top: 70px !important; 
-                left: 12px !important; 
-                max-width: calc(100vw - 24px) !important;
+                right: 15px !important; 
+                left: 15px !important;
+                width: calc(100vw - 30px) !important;
+            }
+            .search-input { 
+                font-size: 12px !important; 
+                padding: 10px 14px !important; 
+            }
+            .search-result-item { 
+                font-size: 12px !important; 
+                padding: 10px 14px !important; 
+            }
+            .timeline-container { 
+                bottom: 80px !important; 
+                right: 15px !important; 
+                height: 45vh !important; 
+            }
+            .year-dot {
+                width: 10px !important;
+                height: 10px !important;
+            }
+            .year-label {
+                font-size: 14px !important;
+                margin-left: 20px !important;
+            }
+            .legend-container { 
+                bottom: 15px !important; 
+                padding: 10px 15px !important; 
+                left: 15px !important;
+                transform: none !important;
+            }
+            .legend-gradient {
+                width: 180px !important;
+            }
+            .description-box { 
+                top: auto !important;
+                bottom: 90px !important; 
+                left: 15px !important; 
+                width: calc(100vw - 240px) !important;
+                max-width: 300px !important;
+                max-height: calc(100vh - 450px) !important;
+                padding: 15px !important;
+                font-size: 12px !important;
+            }
+            .description-box h2 { 
+                font-size: 18px !important; 
+                margin-bottom: 12px !important;
+            }
+            .description-box p { 
+                font-size: 11px !important; 
+                line-height: 1.5 !important;
+            }
+            .controls {
+                font-size: 10px !important;
+                margin-top: 15px !important;
+            }
+            .stats-box { 
+                top: 125px !important; 
+                left: 15px !important; 
+                width: calc(100vw - 30px) !important;
+                max-width: 280px !important;
+                max-height: calc(100vh - 300px) !important;
                 padding: 15px !important;
             }
-            .stats-box h3 { font-size: 14px !important; }
-            .stat-country { font-size: 12px !important; }
-            .stat-score { font-size: 11px !important; }
+            .stats-box h3 { 
+                font-size: 14px !important; 
+            }
+            .stat-label {
+                font-size: 10px !important;
+            }
+            .stat-country { 
+                font-size: 13px !important; 
+            }
+            .stat-score { 
+                font-size: 11px !important; 
+            }
             .reset-button { 
                 bottom: 15px !important; 
-                left: 12px !important; 
-                width: calc(100vw - 24px) !important;
+                left: 15px !important; 
+                width: calc(100vw - 240px) !important;
+                max-width: 300px !important;
+                padding: 10px 18px !important;
+                font-size: 12px !important;
+            }
+            .fade-top-overlay { 
+                height: 110px !important; 
+            }
+            #chart-container .box-style { 
+                left: 15px !important; 
+                top: 120px !important;
+                transform: none !important; 
+                width: calc(100vw - 30px) !important;
+                max-width: 280px !important; 
+                max-height: calc(100vh - 300px) !important;
+                padding: 15px !important;
+            }
+            #chart-container .box-style h3 { 
+                font-size: 14px !important; 
+                margin-bottom: 10px !important;
+            }
+            #chart-container .box-style p { 
+                font-size: 11px !important; 
+                line-height: 1.5 !important;
+            }
+            #chart-container > div:last-child {
+                bottom: 15px !important;
+                padding: 8px 12px !important;
+                gap: 8px !important;
+                flex-wrap: wrap !important;
+                max-width: 90vw !important;
+            }
+            .chart-btn { 
+                padding: 8px 14px !important; 
+                font-size: 11px !important; 
+            }
+        }
+
+        /* Mobile Responsive Adjustments - Phone */
+        @media (max-width: 480px) {
+            .landing-paragraph { 
+                font-size: 13px !important; 
+                line-height: 1.6 !important; 
+                padding: 15px !important;
+            }
+            .unesco-link { 
+                font-size: 11px !important; 
+            }
+            .uncover-btn { 
+                padding: 12px 28px !important; 
+                font-size: 13px !important; 
+            }
+            .title { 
+                font-size: 1em !important; 
+                top: 10px !important; 
+                left: 10px !important; 
+            }
+            .nav-container { 
+                top: 10px !important; 
+                gap: 5px !important; 
+                padding: 5px !important;
+            }
+            .nav-btn { 
+                padding: 6px 12px !important; 
+                font-size: 10px !important; 
+            }
+            .search-container { 
+                top: 55px !important; 
+                right: 10px !important; 
+                left: 10px !important; 
+                width: calc(100vw - 20px) !important;
+            }
+            .search-input { 
+                font-size: 11px !important; 
+                padding: 8px 12px !important; 
+            }
+            .search-result-item { 
+                font-size: 11px !important; 
+                padding: 8px 12px !important; 
+            }
+            .timeline-container { 
+                display: none !important;
+            }
+            .legend-container { 
+                bottom: 10px !important; 
+                left: 10px !important;
+                right: 10px !important;
+                transform: none !important;
+                padding: 8px 12px !important;
+                width: calc(100vw - 20px) !important;
+            }
+            .legend-gradient { 
+                width: 140px !important; 
+                height: 10px !important; 
+            }
+            .legend-title {
+                font-size: 11px !important;
+            }
+            .legend-labels {
+                font-size: 9px !important;
+            }
+            .legend-numbers {
+                font-size: 10px !important;
+            }
+            .description-box { 
+                display: none !important;
+            }
+            .stats-box { 
+                top: 110px !important; 
+                left: 10px !important; 
+                right: 10px !important;
+                width: calc(100vw - 20px) !important;
+                max-width: none !important;
+                max-height: calc(100vh - 260px) !important;
+                padding: 12px !important;
+            }
+            .stats-box h3 { 
+                font-size: 13px !important; 
+                margin-bottom: 12px !important;
+            }
+            .stat-item {
+                margin-bottom: 12px !important;
+                padding-bottom: 10px !important;
+            }
+            .stat-label {
+                font-size: 9px !important;
+            }
+            .stat-country { 
+                font-size: 12px !important; 
+            }
+            .stat-score { 
+                font-size: 10px !important; 
+            }
+            .reset-button { 
+                bottom: 60px !important; 
+                left: 10px !important; 
+                right: 10px !important;
+                width: calc(100vw - 20px) !important;
                 padding: 10px 15px !important;
                 font-size: 12px !important;
             }
-            .fade-top-overlay { height: 100px !important; }
+            .fade-top-overlay { 
+                height: 100px !important; 
+            }
             #chart-container .box-style { 
-                left: 12px !important; 
-                right: 12px !important;
-                top: 90px !important; 
-                width: calc(100vw - 24px) !important; 
-                max-height: 35vh !important;
+                left: 10px !important; 
+                right: 10px !important;
+                top: 105px !important; 
+                transform: none !important;
+                width: calc(100vw - 20px) !important;
+                max-width: none !important;
+                max-height: calc(100vh - 280px) !important;
                 padding: 12px !important;
             }
-            #chart-container .box-style h3 { font-size: 13px !important; margin-bottom: 8px !important; }
-            #chart-container .box-style p { font-size: 10px !important; }
+            #chart-container .box-style h3 { 
+                font-size: 13px !important; 
+                margin-bottom: 8px !important;
+            }
+            #chart-container .box-style p { 
+                font-size: 10px !important; 
+                line-height: 1.4 !important;
+            }
             #chart-container > div:last-child {
-                bottom: 15px !important;
-                padding: 6px 10px !important;
+                bottom: 10px !important;
+                left: 10px !important;
+                right: 10px !important;
+                transform: none !important;
+                padding: 6px 8px !important;
                 gap: 6px !important;
                 flex-wrap: wrap !important;
+                width: calc(100vw - 20px) !important;
+                max-width: none !important;
+                justify-content: center !important;
             }
-            .chart-btn { padding: 5px 10px !important; font-size: 10px !important; }
+            .chart-btn { 
+                padding: 6px 12px !important; 
+                font-size: 10px !important; 
+                flex: 1 1 auto !important;
+                min-width: 80px !important;
+            }
         }
 
+        /* Landscape Mobile */
         @media (max-height: 600px) and (orientation: landscape) {
-            .title { font-size: 0.9em !important; top: 10px !important; left: 10px !important; }
-            .nav-container { top: 10px !important; }
-            .search-container { top: 50px !important; }
-            .timeline-container { bottom: 15px !important; right: 15px !important; height: 60vh !important; }
-            .legend-container { bottom: 15px !important; }
-            .description-box { top: 200px !important; max-height: calc(100vh - 260px) !important; }
-            .stats-box { top: 60px !important; max-height: calc(100vh - 140px) !important; }
-            .reset-button { bottom: 10px !important; }
-            #chart-container .box-style { 
-                top: 70px !important; 
-                max-height: 50vh !important;
+            .title { 
+                font-size: 0.9em !important; 
+                top: 8px !important; 
+                left: 8px !important; 
             }
-            #chart-container > div:last-child { bottom: 10px !important; }
+            .nav-container { 
+                top: 8px !important; 
+            }
+            .search-container { 
+                top: 48px !important; 
+            }
+            .timeline-container { 
+                bottom: 10px !important; 
+                right: 10px !important; 
+                height: 70vh !important; 
+            }
+            .legend-container { 
+                bottom: 10px !important; 
+                left: 10px !important;
+            }
+            .description-box { 
+                bottom: 65px !important;
+                max-height: calc(100vh - 250px) !important;
+            }
+            .stats-box { 
+                top: 100px !important; 
+                max-height: calc(100vh - 240px) !important;
+            }
+            .reset-button { 
+                bottom: 10px !important; 
+            }
+            #chart-container .box-style { 
+                top: 90px !important; 
+                max-height: calc(100vh - 180px) !important;
+            }
+            #chart-container > div:last-child { 
+                bottom: 8px !important; 
+            }
         }
     </style>
 </head>
