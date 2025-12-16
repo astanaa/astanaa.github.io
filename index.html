@@ -127,7 +127,7 @@
             top: 40px;
             left: 40px;
             z-index: 20;
-            font-size: clamp(1.2em, 4vw, 2em);
+            font-size: 2em;
             font-weight: 600;
             color: #5fb3f6;
             text-shadow: 0 0 20px rgba(95, 179, 246, 0.4);
@@ -155,11 +155,10 @@
             padding: 10px 25px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: clamp(12px, 2vw, 14px);
+            font-size: 14px;
             font-weight: 600;
             transition: all 0.3s;
             user-select: none;
-            white-space: nowrap;
         }
 
         .nav-btn:hover { color: #5fb3f6; background: rgba(95, 179, 246, 0.1); }
@@ -170,7 +169,7 @@
             top: 45px;
             right: 57px;
             z-index: 20;
-            width: min(280px, 35vw);
+            width: 280px;
         }
 
         .search-input {
@@ -180,764 +179,1049 @@
             border: 1px solid rgba(95, 179, 246, 0.3);
             border-radius: 25px;
             color: white;
-            font-size: clamp(12px, 2vw, 14px);
+            font-size: 14px;
             outline: none;
-            transition: all 0.3s;
             backdrop-filter: blur(10px);
+            transition: all 0.3s;
         }
 
-        .search-input::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        .search-input:focus {
-            border-color: rgba(95, 179, 246, 0.6);
-            box-shadow: 0 0 15px rgba(95, 179, 246, 0.2);
-        }
+        .search-input::placeholder { color: rgba(255, 255, 255, 0.4); }
+        .search-input:focus { border-color: rgba(95, 179, 246, 0.8); box-shadow: 0 0 20px rgba(95, 179, 246, 0.3); }
 
         .search-results {
             position: absolute;
             top: 100%;
             left: 0;
             right: 0;
+            margin-top: 8px;
             background: rgba(10, 20, 40, 0.95);
             border: 1px solid rgba(95, 179, 246, 0.3);
-            border-radius: 10px;
-            margin-top: 8px;
-            max-height: 250px;
+            border-radius: 12px;
+            max-height: 300px;
             overflow-y: auto;
             backdrop-filter: blur(10px);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s;
+            display: none;
+            z-index: 1000;
         }
 
-        .search-results.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+        .search-results.show { display: block; }
 
         .search-result-item {
             padding: 12px 16px;
-            cursor: pointer;
             color: rgba(255, 255, 255, 0.8);
-            font-size: clamp(12px, 1.8vw, 13px);
+            cursor: pointer;
             border-bottom: 1px solid rgba(95, 179, 246, 0.1);
             transition: all 0.2s;
-        }
-
-        .search-result-item:last-child {
-            border-bottom: none;
+            font-size: 14px;
         }
 
         .search-result-item:hover {
-            background: rgba(95, 179, 246, 0.1);
+            background: rgba(95, 179, 246, 0.2);
+            color: #5fb3f6;
+            padding-left: 20px;
+        }
+
+        #globe-container, #chart-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        #globe-container.slide-up, #chart-container.slide-up { transform: translateY(-100vh); }
+
+        #globe { cursor: grab; }
+        #globe:active { cursor: grabbing; }
+
+        .tooltip {
+            position: absolute;
+            padding: 10px 15px;
+            background: rgba(10, 20, 40, 0.95);
+            border: 1px solid rgba(95, 179, 246, 0.3);
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .tooltip.show { opacity: 1; }
+        .tooltip-country { font-weight: 600; color: #5fb3f6; margin-bottom: 3px; }
+        .tooltip-score { color: rgba(255, 255, 255, 0.9); font-size: 13px; }
+
+        .pisa-term {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 3px;
+            cursor: help;
+            color: #5fb3f6;
+            position: relative;
+        }
+
+        .pisa-tooltip {
+            position: absolute;
+            padding: 12px 15px;
+            background: rgba(10, 20, 40, 0.98);
+            border: 1px solid rgba(95, 179, 246, 0.4);
+            border-radius: 8px;
+            color: white;
+            font-size: 12px;
+            line-height: 1.5;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            max-width: 280px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .pisa-tooltip.show { opacity: 1; }
+
+        .box-style {
+            color: white;
+            background: rgba(10, 20, 40, 0.9);
+            padding: clamp(12px, 3vw, 20px);
+            border-radius: 12px;
+            border: 1px solid rgba(95, 179, 246, 0.2);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            overflow-y: auto;
+        }
+
+        .description-box {
+            position: absolute;
+            top: 328px;
+            left: 40px;
+            width: clamp(270px, 90vw, 350px);
+            max-height: calc(100vh - 420px);
+        }
+
+        .description-box h2 {
+            margin: 0 0 15px 0;
+            font-size: clamp(18px, 4vw, 24px);
+            font-weight: 600;
             color: #5fb3f6;
         }
 
-        .search-results::-webkit-scrollbar {
-            width: 6px;
+        .description-box p {
+            margin: 0 0 12px 0;
+            font-size: clamp(12px, 1.8vw, 14px);
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
         }
 
-        .search-results::-webkit-scrollbar-track {
-            background: rgba(95, 179, 246, 0.05);
+        .controls {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(95, 179, 246, 0.2);
+            font-size: clamp(10px, 1.5vw, 12px);
+            color: rgba(255, 255, 255, 0.6);
         }
 
-        .search-results::-webkit-scrollbar-thumb {
-            background: rgba(95, 179, 246, 0.3);
-            border-radius: 3px;
+        .controls div { margin-bottom: 5px; }
+
+        .country-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(95, 179, 246, 0.3);
         }
 
-        .search-results::-webkit-scrollbar-thumb:hover {
-            background: rgba(95, 179, 246, 0.5);
+        .country-name {
+            font-size: clamp(16px, 3.5vw, 20px);
+            font-weight: 600;
+            color: #5fb3f6;
         }
 
-        .globe-container {
+        .country-year {
+            font-size: clamp(11px, 1.5vw, 13px);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .timeline-container {
+            position: absolute;
+            bottom: 100px;
+            right: 120px;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .timeline-line {
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(95, 179, 246, 0.3), rgba(95, 179, 246, 0.8) 50%, rgba(95, 179, 246, 0.3));
+            position: relative;
+        }
+
+        .timeline-years {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            transition: transform 0.8s ease-in-out;
-        }
-
-        .globe-container.slide-up {
-            transform: translateY(-100vh);
-        }
-
-        .chart-container {
-            position: absolute;
-            top: 100vh;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.8s ease-in-out;
-        }
-
-        .chart-container.slide-up {
-            transform: translateY(-100vh);
-        }
-
-        .controls {
-            position: absolute;
-            bottom: 40px;
-            right: 40px;
-            z-index: 20;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            justify-content: space-between;
         }
 
-        .control-btn {
+        .year-marker {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .year-marker:hover .year-dot { transform: scale(1.5); background: #5fb3f6; box-shadow: 0 0 20px rgba(95, 179, 246, 0.8); }
+        .year-marker:hover .year-label { color: #5fb3f6; transform: translateX(5px); }
+
+        .year-dot {
+            width: 12px;
+            height: 12px;
+            background: #5fb3f6;
+            border: 2px solid #5fb3f6;
+            border-radius: 50%;
+            position: absolute;
+            left: -5px;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(95, 179, 246, 0.4);
+        }
+
+        .year-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            font-weight: 600;
+            margin-left: 25px;
+            transition: all 0.3s;
+            user-select: none;
+        }
+
+        .year-marker.active .year-dot { transform: scale(1.8); box-shadow: 0 0 25px rgba(95, 179, 246, 1); }
+        .year-marker.active .year-label { color: #5fb3f6; font-size: 18px; }
+
+        .legend-container {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
             background: rgba(10, 20, 40, 0.9);
+            padding: 12px 20px;
+            border-radius: 12px;
             border: 1px solid rgba(95, 179, 246, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .legend-title { color: #5fb3f6; font-size: 12px; font-weight: 600; margin-bottom: 6px; text-align: center; }
+        .legend-gradient { width: 200px; height: 15px; background: linear-gradient(to right, #f7fcb9, #addd8e, #31a354); border-radius: 3px; margin-bottom: 5px; }
+        .legend-labels { display: flex; justify-content: space-between; color: rgba(255, 255, 255, 0.7); font-size: 10px; }
+        .legend-numbers { display: flex; justify-content: space-between; color: #5fb3f6; font-size: 11px; font-weight: 600; margin-top: 2px; }
+
+        .country-path { transition: stroke 0.3s, stroke-width 0.3s; }
+        .country-path.selected { stroke: #0099cc !important; stroke-width: 2.5 !important; filter: drop-shadow(0 0 15px rgba(0, 153, 204, 0.7)) !important; }
+        .country-path.highest { stroke: #ffd700 !important; stroke-width: 3 !important; filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.9)) !important; }
+        .country-path.lowest { stroke: #ff4444 !important; stroke-width: 3 !important; filter: drop-shadow(0 0 20px rgba(255, 68, 68, 0.9)) !important; }
+
+        .stats-box {
+            position: absolute;
+            top: 90px;
+            left: 40px;
+            width: clamp(220px, 90vw, 263px);
+            max-height: calc(100vh - 180px);
+            z-index: 15;
+        }
+
+        .reset-button {
+            position: absolute;
+            bottom: 25px;
+            left: 40px;
+            width: clamp(220px, 90vw, 263px);
+            background: rgba(95, 179, 246, 0.15);
+            border: 1px solid rgba(95, 179, 246, 0.4);
             color: #5fb3f6;
-            padding: 12px 24px;
-            border-radius: 25px;
+            padding: clamp(10px, 2vw, 12px) clamp(15px, 3vw, 20px);
+            border-radius: 8px;
             cursor: pointer;
             font-size: clamp(12px, 2vw, 14px);
             font-weight: 600;
             transition: all 0.3s;
             backdrop-filter: blur(10px);
-            user-select: none;
-            white-space: nowrap;
+            z-index: 15;
         }
 
-        .control-btn:hover {
-            background: rgba(95, 179, 246, 0.2);
-            border-color: rgba(95, 179, 246, 0.6);
-            box-shadow: 0 0 15px rgba(95, 179, 246, 0.3);
+        .reset-button:hover { background: rgba(95, 179, 246, 0.25); border-color: rgba(95, 179, 246, 0.6); box-shadow: 0 0 15px rgba(95, 179, 246, 0.3); }
+        .reset-button:active { transform: scale(0.98); }
+
+        .stats-box h3 {
+            margin: 0 0 15px 0;
+            font-size: clamp(14px, 2.5vw, 16px);
+            font-weight: 600;
+            color: #5fb3f6;
         }
 
-        .control-btn:active {
-            transform: scale(0.95);
+        .stat-item {
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(95, 179, 246, 0.2);
         }
 
-        .chart-controls {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 20;
-            display: flex;
-            gap: 12px;
-            background: rgba(10, 20, 40, 0.9);
-            padding: 8px;
-            border-radius: 30px;
-            border: 1px solid rgba(95, 179, 246, 0.3);
-            backdrop-filter: blur(10px);
-            flex-wrap: wrap;
-            justify-content: center;
+        .stat-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+        .stat-label {
+            font-size: clamp(10px, 1.5vw, 12px);
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
+
+        .stat-highest { color: #ffd700; }
+        .stat-lowest { color: #ff4444; }
+
+        .stat-country {
+            font-size: clamp(12px, 1.8vw, 14px);
+            font-weight: 600;
+            color: white;
+            margin-bottom: 3px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .stat-country:hover { color: #5fb3f6; text-decoration: underline; }
+        .stat-score { font-size: clamp(11px, 1.5vw, 13px); color: rgba(255, 255, 255, 0.8); }
 
         .chart-btn {
             background: transparent;
             border: none;
             color: rgba(255, 255, 255, 0.6);
-            padding: 10px 20px;
+            padding: 8px 20px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: clamp(11px, 1.8vw, 13px);
+            font-size: 14px;
             font-weight: 600;
             transition: all 0.3s;
-            user-select: none;
-            white-space: nowrap;
         }
 
-        .chart-btn:hover {
-            color: #5fb3f6;
-            background: rgba(95, 179, 246, 0.1);
-        }
+        .chart-btn.active { background: rgba(95, 179, 246, 0.3); color: #5fb3f6; }
 
-        .chart-btn.active {
-            color: #fff;
-            background: rgba(95, 179, 246, 0.3);
-            box-shadow: 0 0 15px rgba(95, 179, 246, 0.3);
-        }
-
-        .scatter-description {
-            position: absolute;
-            top: 120px;
-            left: 40px;
-            max-width: min(350px, 30vw);
-            background: rgba(10, 20, 40, 0.9);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(95, 179, 246, 0.3);
-            color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 15;
-        }
-
-        #tooltip {
-            position: absolute;
-            background: rgba(10, 20, 40, 0.95);
-            border: 1px solid rgba(95, 179, 246, 0.4);
-            border-radius: 8px;
-            padding: 12px 16px;
-            pointer-events: none;
-            font-size: clamp(11px, 1.8vw, 13px);
-            color: white;
-            opacity: 0;
-            transition: opacity 0.2s;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        #tooltip.show {
-            opacity: 1;
-        }
-
-        .tooltip-country {
-            font-weight: 600;
-            color: #5fb3f6;
-            margin-bottom: 6px;
-        }
-
-        .tooltip-score {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: clamp(10px, 1.6vw, 12px);
-        }
-
-        /* Mobile Responsive Adjustments */
         @media (max-width: 768px) {
-            .title {
-                top: 15px;
-                left: 15px;
-                font-size: 1.2em;
-            }
-
-            .nav-container {
-                top: 15px;
-                gap: 8px;
-                padding: 6px;
-            }
-
-            .nav-btn {
-                padding: 8px 15px;
-                font-size: 11px;
-            }
-
-            .search-container {
-                top: 70px;
-                right: 15px;
-                left: 15px;
-                width: auto;
-            }
-
-            .controls {
-                bottom: 20px;
-                right: 20px;
-                gap: 10px;
-            }
-
-            .control-btn {
-                padding: 10px 18px;
-                font-size: 12px;
-            }
-
-            .chart-controls {
-                bottom: 20px;
-                left: 50%;
-                right: auto;
-                transform: translateX(-50%);
-                gap: 8px;
-                padding: 6px;
-                max-width: 90vw;
-            }
-
-            .chart-btn {
-                padding: 8px 15px;
-                font-size: 11px;
-            }
-
-            .scatter-description {
-                top: 110px;
-                left: 15px;
-                right: 15px;
-                max-width: calc(100vw - 30px);
-                padding: 15px;
-            }
-
-            .fade-top-overlay {
-                height: 120px;
-            }
-
-            .landing-content {
+            .landing-paragraph {
+                font-size: clamp(14px, 4vw, 18px);
                 padding: 20px;
             }
-
-            .landing-paragraph {
-                font-size: 14px;
-                margin-bottom: 12px;
-            }
-
-            .unesco-link {
-                font-size: 12px;
-                margin-bottom: 25px;
-            }
-
             .uncover-btn {
-                padding: 14px 35px;
-                font-size: 14px;
+                padding: 15px 35px;
+                font-size: clamp(14px, 3vw, 16px);
             }
+            .title { font-size: clamp(1.2em, 5vw, 2em); top: 20px; left: 20px; }
+            .nav-container { top: 20px; gap: 8px; }
+            .nav-btn { padding: 8px 15px; font-size: 12px; }
+            .search-container { top: 35px; right: 15px; width: clamp(180px, 75vw, 220px); }
+            .timeline-container { bottom: 40px; right: 20px; }
+            .legend-container { bottom: 40px; padding: 10px 15px; }
+        }
+
+        /* Additional Mobile Responsive Adjustments */
+        @media (max-width: 768px) {
+            .search-input { font-size: 12px; padding: 10px 14px; }
+            .search-result-item { font-size: 12px; padding: 10px 14px; }
+            .timeline-container { height: 50vh; }
+            .description-box { top: 280px; left: 20px; max-width: calc(100vw - 40px); max-height: calc(100vh - 360px); }
+            .stats-box { top: 80px; left: 20px; max-width: calc(100vw - 40px); max-height: calc(100vh - 160px); }
+            .reset-button { bottom: 20px; left: 20px; width: clamp(180px, 85vw, 220px); }
+            .fade-top-overlay { height: 120px; }
+            #chart-container .box-style { 
+                left: 20px !important; 
+                top: 100px !important; 
+                transform: none !important; 
+                width: clamp(180px, 85vw, 250px) !important; 
+                max-height: 40vh !important; 
+            }
+            #chart-container .box-style h3 { font-size: 14px !important; }
+            #chart-container .box-style p { font-size: 11px !important; }
+            #chart-container > div:last-child {
+                bottom: 20px !important;
+                padding: 8px 12px !important;
+                gap: 8px !important;
+            }
+            .chart-btn { padding: 6px 12px !important; font-size: 11px !important; }
         }
 
         @media (max-width: 480px) {
-            .title {
-                font-size: 1em;
-                top: 12px;
-                left: 12px;
+            .landing-paragraph { font-size: 13px !important; line-height: 1.6 !important; }
+            .unesco-link { font-size: 11px !important; }
+            .uncover-btn { padding: 12px 28px !important; font-size: 13px !important; }
+            .title { font-size: 1em !important; top: 12px !important; left: 12px !important; }
+            .nav-container { top: 12px !important; gap: 6px !important; padding: 5px !important; }
+            .nav-btn { padding: 6px 12px !important; font-size: 10px !important; }
+            .search-container { top: 60px !important; right: 12px !important; left: 12px !important; width: auto !important; }
+            .search-input { font-size: 11px !important; padding: 8px 12px !important; }
+            .search-result-item { font-size: 11px !important; padding: 8px 12px !important; }
+            .timeline-container { bottom: 30px !important; right: 15px !important; height: 40vh !important; }
+            .year-label { font-size: 14px !important; }
+            .legend-container { bottom: 30px !important; padding: 8px 12px !important; }
+            .legend-gradient { width: 150px !important; height: 12px !important; }
+            .description-box { 
+                top: 250px !important; 
+                left: 12px !important; 
+                right: 12px !important;
+                max-width: calc(100vw - 24px) !important; 
+                max-height: calc(100vh - 330px) !important;
+                padding: 15px !important;
             }
-
-            .nav-container {
-                top: 12px;
-                gap: 6px;
-                padding: 5px;
+            .description-box h2 { font-size: 16px !important; }
+            .description-box p { font-size: 11px !important; }
+            .stats-box { 
+                top: 70px !important; 
+                left: 12px !important; 
+                max-width: calc(100vw - 24px) !important;
+                padding: 15px !important;
             }
-
-            .nav-btn {
-                padding: 6px 12px;
-                font-size: 10px;
+            .stats-box h3 { font-size: 14px !important; }
+            .stat-country { font-size: 12px !important; }
+            .stat-score { font-size: 11px !important; }
+            .reset-button { 
+                bottom: 15px !important; 
+                left: 12px !important; 
+                width: calc(100vw - 24px) !important;
+                padding: 10px 15px !important;
+                font-size: 12px !important;
             }
-
-            .search-container {
-                top: 60px;
-                right: 12px;
-                left: 12px;
+            .fade-top-overlay { height: 100px !important; }
+            #chart-container .box-style { 
+                left: 12px !important; 
+                right: 12px !important;
+                top: 90px !important; 
+                width: calc(100vw - 24px) !important; 
+                max-height: 35vh !important;
+                padding: 12px !important;
             }
-
-            .search-input {
-                padding: 10px 14px;
-                font-size: 12px;
+            #chart-container .box-style h3 { font-size: 13px !important; margin-bottom: 8px !important; }
+            #chart-container .box-style p { font-size: 10px !important; }
+            #chart-container > div:last-child {
+                bottom: 15px !important;
+                padding: 6px 10px !important;
+                gap: 6px !important;
+                flex-wrap: wrap !important;
             }
-
-            .controls {
-                bottom: 15px;
-                right: 15px;
-                gap: 8px;
-            }
-
-            .control-btn {
-                padding: 8px 16px;
-                font-size: 11px;
-            }
-
-            .chart-controls {
-                bottom: 15px;
-                gap: 6px;
-                padding: 5px;
-            }
-
-            .chart-btn {
-                padding: 6px 12px;
-                font-size: 10px;
-            }
-
-            .scatter-description {
-                top: 95px;
-                left: 12px;
-                right: 12px;
-                padding: 12px;
-                font-size: 11px;
-            }
-
-            .landing-paragraph {
-                font-size: 13px;
-                line-height: 1.6;
-            }
-
-            .unesco-link {
-                font-size: 11px;
-            }
-
-            .uncover-btn {
-                padding: 12px 28px;
-                font-size: 13px;
-            }
+            .chart-btn { padding: 5px 10px !important; font-size: 10px !important; }
         }
 
-        /* Landscape mobile adjustments */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .title {
-                top: 10px;
-                left: 10px;
-                font-size: 0.9em;
+        @media (max-height: 600px) and (orientation: landscape) {
+            .title { font-size: 0.9em !important; top: 10px !important; left: 10px !important; }
+            .nav-container { top: 10px !important; }
+            .search-container { top: 50px !important; }
+            .timeline-container { bottom: 15px !important; right: 15px !important; height: 60vh !important; }
+            .legend-container { bottom: 15px !important; }
+            .description-box { top: 200px !important; max-height: calc(100vh - 260px) !important; }
+            .stats-box { top: 60px !important; max-height: calc(100vh - 140px) !important; }
+            .reset-button { bottom: 10px !important; }
+            #chart-container .box-style { 
+                top: 70px !important; 
+                max-height: 50vh !important;
             }
-
-            .nav-container {
-                top: 10px;
-            }
-
-            .search-container {
-                top: 50px;
-            }
-
-            .controls {
-                bottom: 10px;
-                right: 10px;
-            }
-
-            .chart-controls {
-                bottom: 10px;
-            }
-
-            .scatter-description {
-                top: 70px;
-                max-width: 250px;
-                padding: 10px;
-                font-size: 10px;
-            }
+            #chart-container > div:last-child { bottom: 10px !important; }
         }
     </style>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 <body>
     <div id="landing-page">
         <div class="landing-content">
             <p class="landing-paragraph">
-                The world is filled with diverse minds and hidden potential, yet not every child has the same opportunities to excel. The latest global PISA data shows a worrying divide: while some countries boast top-tier results, many still struggle to meet basic educational benchmarks. In the future, bright students in remote areas may lack access to quality learning, while those in bustling cities benefit from well-funded schools. Education shouldn't be a lottery. It should open doors and build bridges.
+                In some classrooms, learning is a joy, lessons flow easily, voices are heard. But elsewhere, millions of children struggle to understand words not written in their language, feeling like outsiders in their own schools. While some are born into systems that nurture potential, others must fight barriers just to be seen, reminding us how uneven the world of education truly is.
             </p>
             <div class="unesco-link">
-                <a href="https://www.oecd.org/pisa/" target="_blank">OECD PISA Data Source</a>
+                <a href="https://www.unesco.org/en/articles/new-unesco-report-shows-extent-global-inequalities-education-and-calls-greater-inclusion-schools-re#:~:text=The%202020%20Global%20Education%20Monitoring%20(GEM)%20Report,labor%20is%20still%20permitted%20in%20some%20countries" target="_blank" rel="noopener noreferrer">(UNESCO, 2023)</a>
             </div>
-            <button class="uncover-btn" id="uncover-btn">Uncover The Story</button>
+            <button class="uncover-btn" id="uncover-btn">Uncover the Truth</button>
         </div>
     </div>
 
     <div id="visualization-container">
         <div class="fade-top-overlay"></div>
-        <div id="page-title" class="title">A World of Unequal Learning</div>
+        <h1 class="title" id="page-title">A World of Unequal Learning</h1>
 
         <div class="nav-container">
-            <button class="nav-btn active" id="nav-globe">GLOBE</button>
-            <button class="nav-btn" id="nav-chart">INSIGHTS</button>
+            <button class="nav-btn active" id="nav-globe">Globe</button>
+            <button class="nav-btn" id="nav-chart">Chart</button>
         </div>
 
         <div class="search-container" id="search-container">
-            <input type="text" class="search-input" id="search-input" placeholder="Search country...">
-            <div class="search-results" id="search-results"></div>
+            <input type="text" id="search-input" placeholder="Search country..." class="search-input">
+            <div id="search-results" class="search-results"></div>
         </div>
 
-        <div class="globe-container" id="globe-container">
-            <svg id="globe"></svg>
-            <div class="controls">
-                <button class="control-btn" id="reset-btn">Reset View</button>
-            </div>
-        </div>
-
-        <div class="chart-container" id="chart-container">
-            <svg id="chart"></svg>
-            <div class="scatter-description" id="scatter-description">
-                <h3 style="margin: 0 0 12px 0; font-size: clamp(14px, 2vw, 16px); font-weight: 600; color: #5fb3f6;">Study Hours</h3>
-                <p style="margin: 0; font-size: clamp(11px, 1.8vw, 13px); line-height: 1.6;">Students who spend more time studying generally achieve higher exam scores. The trend shows a positive relationship, as study hours increase, exam performance improves.</p>
-            </div>
-            <div class="chart-controls">
-                <button class="chart-btn active" id="btn-study">Study Hours</button>
-                <button class="chart-btn" id="btn-social">Social Media</button>
-                <button class="chart-btn" id="btn-sleep">Sleep</button>
-            </div>
-        </div>
-
-        <div id="tooltip">
+        <div class="tooltip" id="tooltip">
             <div class="tooltip-country"></div>
             <div class="tooltip-score"></div>
         </div>
+
+        <div class="pisa-tooltip" id="pisa-tooltip">
+            PISA scores show how well 15-year-olds apply knowledge in reading, math, and science. The global average is 500. Scores above 500 show better-than-average performance; below 500 means below average.
+        </div>
+
+        <div id="globe-container">
+            <svg id="globe"></svg>
+            
+            <div class="description-box box-style default" id="description-box">
+                <h2>How is it unequal?</h2>            
+                <p>In some parts of the world, classrooms glow with possibility, students have access to the internet, freedom to learn, and the support to dream. In others, the light is dimmer, opportunities fade where resources and hope run thin. These numbers whisper a truth: talent is everywhere, but opportunity is not.</p>
+                <p>Measured by <span class="pisa-term" id="pisa-term">PISA score</span>, it shows how well 15-year-olds perform in reading, math, and science.</p>
+                <div class="controls">
+                    <div>Drag to rotate the globe</div>
+                    <div>Scroll to zoom in and out</div>
+                    <div>Click on a country to focus</div>
+                    <div>Use the timeline to change year</div>
+                </div>
+            </div>
+
+            <div class="stats-box box-style">
+                <h3>Avg. Students' Performance Across the Globe</h3>
+                <div class="stat-item">
+                    <div class="stat-label stat-highest">🏆 Highest Performance</div>
+                    <div class="stat-country" id="highest-country">-</div>
+                    <div class="stat-score" id="highest-score">-</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label stat-lowest">📍 Lowest Performance</div>
+                    <div class="stat-country" id="lowest-country">-</div>
+                    <div class="stat-score" id="lowest-score">-</div>
+                </div>
+            </div>
+
+            <button class="reset-button" id="reset-button">↺ Reset View</button>
+
+            <div class="timeline-container">
+                <div class="timeline-line">
+                    <div class="timeline-years" id="timeline-years"></div>
+                </div>
+            </div>
+
+            <div class="legend-container">
+                <div class="legend-title">Student Performance Score</div>
+                <div class="legend-gradient"></div>
+                <div class="legend-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+                <div class="legend-numbers">
+                    <span id="legend-min">-</span>
+                    <span id="legend-max">-</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="chart-container">
+            <div class="box-style" style="position: absolute; left: 40px; top: 50%; transform: translateY(-50%); width: clamp(200px, 20vw, 300px); max-height: 70vh; z-index: 15;" id="scatter-description">
+                <h3 style="margin: 0 0 12px 0; font-size: 16px; font-weight: 600; color: #5fb3f6;">Study Hours</h3>
+                <p style="margin: 0; font-size: 13px; line-height: 1.6;">Students who spend more time studying generally achieve higher exam scores. The trend shows a positive relationship, as study hours increase, exam performance improves.</p>
+            </div>
+            <svg id="chart"></svg>
+            <div style="position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); z-index: 20; display: flex; gap: 10px; background: rgba(10, 20, 40, 0.9); padding: 10px 15px; border-radius: 25px; border: 1px solid rgba(95, 179, 246, 0.3);">
+                <button id="btn-study" class="chart-btn active">Study Hours</button>
+                <button id="btn-social" class="chart-btn">Social Media Hours</button>
+                <button id="btn-sleep" class="chart-btn">Sleep Hours</button>
+            </div>
+        </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
     <script>
+        document.getElementById('uncover-btn').addEventListener('click', function() {
+            document.getElementById('landing-page').classList.add('slide-up');
+            document.getElementById('visualization-container').classList.add('slide-up');
+        });
+
         const Config = {
             width: window.innerWidth,
             height: window.innerHeight,
             baseScale: Math.min(window.innerWidth, window.innerHeight) * 0.4,
-            rotationSpeed: 0.3,
-            transitionDuration: 1000,
-            colors: {
-                ocean: 'rgba(30, 60, 120, 0.4)',
-                landDefault: 'rgba(40, 80, 120, 0.3)',
-                landHover: 'rgba(95, 179, 246, 0.5)',
-                landSelected: 'rgba(95, 179, 246, 0.7)',
-                countryStroke: 'rgba(255, 255, 255, 0.2)'
-            }
+            colors: { primary: '#5fb3f6', gold: '#ffd700', red: '#ff4444', cyan: '#0099cc', darkBg: '#0d1b2e', darkStroke: '#1a3a52' }
         };
 
         const state = {
-            rotation: [0, 0],
-            selectedCountry: null,
-            rotating: true,
-            countries: [],
-            scatterData: [],
-            currentVariable: 'study_hours_per_day'
+            data: [], countries: [], year: 2018, selected: null, zoomed: false, dragging: false,
+            stats: { avg: 0, min: 0, max: 0, highest: null, lowest: null },
+            rotationTimer: null, rotation: { x: 0, y: -10 },
+            scatterData: [], currentVariable: 'study_hours_per_day'
         };
 
         const els = {
-            landingPage: document.getElementById('landing-page'),
-            vizContainer: document.getElementById('visualization-container'),
-            uncoverBtn: document.getElementById('uncover-btn'),
             navGlobe: document.getElementById('nav-globe'),
             navChart: document.getElementById('nav-chart'),
             globeContainer: document.getElementById('globe-container'),
             chartContainer: document.getElementById('chart-container'),
-            globe: d3.select('#globe'),
-            chart: d3.select('#chart'),
             searchInput: document.getElementById('search-input'),
             searchResults: document.getElementById('search-results'),
-            resetBtn: document.getElementById('reset-btn')
+            description: document.getElementById('description-box'),
+            tooltip: document.getElementById('tooltip'),
+            resetBtn: document.getElementById('reset-button'),
+            globe: d3.select('#globe'),
+            chart: d3.select('#chart'),
+            timeline: d3.select('#timeline-years'),
+            highest: document.getElementById('highest-country'),
+            highestScore: document.getElementById('highest-score'),
+            lowest: document.getElementById('lowest-country'),
+            lowestScore: document.getElementById('lowest-score')
         };
 
-        els.uncoverBtn.addEventListener('click', () => {
-            els.landingPage.classList.add('slide-up');
-            els.vizContainer.classList.add('slide-up');
-        });
-
-        const projection = d3.geoOrthographic()
+        let projection = d3.geoOrthographic()
             .scale(Config.baseScale)
-            .translate([Config.width / 2, Config.height / 2])
-            .rotate(state.rotation)
-            .clipAngle(90);
+            .center([0, 0])
+            .rotate([0, -10])
+            .translate([Config.width / 2, Config.height / 2]);
 
-        const path = d3.geoPath().projection(projection);
+        let pathGen = d3.geoPath().projection(projection);
+
+        function scoreColor(score, avg, min, max) {
+            const normalized = (score - min) / (max - min);
+            return normalized < 0.5 
+                ? d3.interpolateRgb('#f7fcb9', '#addd8e')(normalized * 2)
+                : d3.interpolateRgb('#addd8e', '#31a354')((normalized - 0.5) * 2);
+        }
+
+        function setupPisaTooltip() {
+            const pisaTerm = document.getElementById('pisa-term');
+            const pisaTooltip = document.getElementById('pisa-tooltip');
+            
+            if (pisaTerm) {
+                pisaTerm.addEventListener('mouseenter', (e) => {
+                    pisaTooltip.classList.add('show');
+                    const rect = pisaTerm.getBoundingClientRect();
+                    pisaTooltip.style.left = (rect.left + window.scrollX) + 'px';
+                    pisaTooltip.style.top = (rect.bottom + window.scrollY + 8) + 'px';
+                });
+                
+                pisaTerm.addEventListener('mouseleave', () => {
+                    pisaTooltip.classList.remove('show');
+                });
+            }
+        }
 
         function setupGlobe() {
-            els.globe
-                .attr('width', Config.width)
-                .attr('height', Config.height);
+            els.globe.attr('width', Config.width).attr('height', Config.height);
 
             els.globe.append('circle')
-                .attr('id', 'globe-circle')
                 .attr('cx', Config.width / 2)
                 .attr('cy', Config.height / 2)
-                .attr('r', Config.baseScale)
-                .attr('fill', Config.colors.ocean)
-                .attr('stroke', 'rgba(95, 179, 246, 0.4)')
-                .attr('stroke-width', 2);
+                .attr('r', projection.scale())
+                .attr('fill', Config.colors.darkBg)
+                .attr('stroke', Config.colors.darkStroke)
+                .attr('stroke-width', 1.5)
+                .attr('id', 'globe-circle');
 
-            els.globe.append('g').attr('id', 'countries');
+            els.globe.append('g').attr('class', 'countries-group');
+
+            els.globe.call(d3.drag().on('start', dragStart).on('drag', dragging).on('end', dragEnd));
+            els.globe.call(d3.zoom().scaleExtent([0.7, 2.5]).on('zoom', handleZoom));
         }
 
         function loadData() {
             Promise.all([
-                d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'),
-                d3.csv('https://raw.githubusercontent.com/astanaa/Data_Visualization_Project/refs/heads/main/Dataset/PISA_scores_by_country.csv')
-            ]).then(([world, pisaData]) => {
-                const pisaMap = {};
-                pisaData.forEach(d => {
-                    pisaMap[d.Country] = {
-                        score: +d['Average PISA Score'],
-                        math: +d['PISA Mathematics Score'],
-                        reading: +d['PISA Reading Score'],
-                        science: +d['PISA Science Score']
-                    };
-                });
-
-                state.countries = topojson.feature(world, world.objects.countries).features.map(f => {
-                    const countryName = f.properties.name;
-                    const pisa = pisaMap[countryName];
-                    return {
-                        ...f,
-                        properties: {
-                            ...f.properties,
-                            pisa: pisa || null
-                        }
-                    };
-                });
-
-                drawCountries();
-                if (state.rotating) startRotation();
+                fetch('https://raw.githubusercontent.com/astanaa/Data_Visualization_Project/refs/heads/main/Dataset/World_Education%20-%20Final.csv').then(r => r.text()),
+                d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json')
+            ]).then(([csvText, world]) => {
+                state.data = Papa.parse(csvText, { header: true, dynamicTyping: true, skipEmptyLines: true }).data;
+                state.countries = topojson.feature(world, world.objects.countries).features;
+                buildTimeline([...new Set(state.data.map(d => d.Year))].sort((a, b) => a - b));
+                draw();
+                updateStats();
+                autoRotate();
             }).catch(err => console.error('Data load failed:', err));
         }
 
-        function drawCountries() {
-            const countries = els.globe.select('#countries')
-                .selectAll('path')
-                .data(state.countries);
-
-            countries.enter()
+        function draw() {
+            const group = els.globe.select('.countries-group');
+            group.selectAll('path').remove();
+            group.selectAll('path')
+                .data(state.countries)
+                .enter()
                 .append('path')
-                .attr('d', path)
-                .attr('fill', d => {
-                    if (!d.properties.pisa) return Config.colors.landDefault;
-                    const score = d.properties.pisa.score;
-                    const minScore = 350;
-                    const maxScore = 550;
-                    const normalized = (score - minScore) / (maxScore - minScore);
-                    const intensity = Math.max(0.2, Math.min(1, normalized));
-                    const r = Math.floor(95 + (160 - 95) * intensity);
-                    const g = Math.floor(179 + (220 - 179) * intensity);
-                    const b = Math.floor(246 + (255 - 246) * intensity);
-                    return `rgba(${r}, ${g}, ${b}, ${0.3 + intensity * 0.4})`;
-                })
-                .attr('stroke', Config.colors.countryStroke)
+                .attr('d', pathGen)
+                .attr('stroke', Config.colors.darkBg)
                 .attr('stroke-width', 0.5)
+                .attr('class', 'country-path')
+                .style('filter', 'drop-shadow(0 0 5px rgba(0,0,0,0.5))')
                 .style('cursor', 'pointer')
-                .on('mouseover', function(event, d) {
-                    if (state.selectedCountry !== d) {
-                        d3.select(this)
-                            .attr('fill', Config.colors.landHover)
-                            .attr('stroke-width', 1.5);
-                    }
-                    showTooltip(event, d);
-                })
-                .on('mousemove', (event) => {
-                    d3.select('#tooltip')
-                        .style('left', (event.pageX + 15) + 'px')
-                        .style('top', (event.pageY - 28) + 'px');
-                })
-                .on('mouseout', function(event, d) {
-                    if (state.selectedCountry !== d) {
-                        d3.select(this)
-                            .attr('fill', d => {
-                                if (!d.properties.pisa) return Config.colors.landDefault;
-                                const score = d.properties.pisa.score;
-                                const minScore = 350;
-                                const maxScore = 550;
-                                const normalized = (score - minScore) / (maxScore - minScore);
-                                const intensity = Math.max(0.2, Math.min(1, normalized));
-                                const r = Math.floor(95 + (160 - 95) * intensity);
-                                const g = Math.floor(179 + (220 - 179) * intensity);
-                                const b = Math.floor(246 + (255 - 246) * intensity);
-                                return `rgba(${r}, ${g}, ${b}, ${0.3 + intensity * 0.4})`;
-                            })
-                            .attr('stroke-width', 0.5);
-                    }
-                    hideTooltip();
-                })
-                .on('click', (event, d) => handleCountryClick(d));
-
-            countries.attr('d', path);
+                .on('click', (e, d) => { e.stopPropagation(); handleCountryClick(d); })
+                .on('mouseover', (e, d) => showTooltip(e, d))
+                .on('mousemove', (e) => d3.select('#tooltip').style('left', (e.pageX + 15) + 'px').style('top', (e.pageY - 28) + 'px'))
+                .on('mouseout', () => d3.select('#tooltip').classed('show', false));
         }
 
-        function showTooltip(event, d) {
-            const tooltip = d3.select('#tooltip');
-            const countryName = d.properties.name;
-            const pisa = d.properties.pisa;
-
-            tooltip.select('.tooltip-country').text(countryName);
-
-            if (pisa) {
-                tooltip.select('.tooltip-score').html(`
-                    Average: ${pisa.score.toFixed(0)}<br>
-                    Math: ${pisa.math.toFixed(0)} | Reading: ${pisa.reading.toFixed(0)} | Science: ${pisa.science.toFixed(0)}
-                `);
-            } else {
-                tooltip.select('.tooltip-score').text('No PISA data available');
-            }
-
-            tooltip
-                .classed('show', true)
-                .style('left', (event.pageX + 15) + 'px')
-                .style('top', (event.pageY - 28) + 'px');
+        function buildTimeline(years) {
+            els.timeline.selectAll('*').remove();
+            years.forEach(yr => {
+                const item = els.timeline.append('div')
+                    .attr('class', yr === state.year ? 'year-marker active' : 'year-marker')
+                    .on('click', () => selectYear(yr));
+                item.append('div').attr('class', 'year-dot');
+                item.append('div').attr('class', 'year-label').text(yr);
+            });
         }
 
-        function hideTooltip() {
-            d3.select('#tooltip').classed('show', false);
+        function selectYear(yr) {
+            state.year = yr;
+            d3.selectAll('.year-marker').classed('active', false);
+            d3.selectAll('.year-marker').filter(function() {
+                return d3.select(this).select('.year-label').text() == yr;
+            }).classed('active', true);
+            updateStats();
+            if (state.selected) updateInfo(state.selected);
         }
 
         function handleCountryClick(feature) {
-            state.rotating = false;
-            state.selectedCountry = feature;
+            if (state.zoomed && state.selected === feature) zoomOut();
+            else if (state.zoomed) panTo(feature);
+            else zoomIn(feature);
+        }
 
-            els.globe.selectAll('path')
-                .attr('fill', d => {
-                    if (d === feature) return Config.colors.landSelected;
-                    if (!d.properties.pisa) return Config.colors.landDefault;
-                    const score = d.properties.pisa.score;
-                    const minScore = 350;
-                    const maxScore = 550;
-                    const normalized = (score - minScore) / (maxScore - minScore);
-                    const intensity = Math.max(0.2, Math.min(1, normalized));
-                    const r = Math.floor(95 + (160 - 95) * intensity);
-                    const g = Math.floor(179 + (220 - 179) * intensity);
-                    const b = Math.floor(246 + (255 - 246) * intensity);
-                    return `rgba(${r}, ${g}, ${b}, ${0.3 + intensity * 0.4})`;
-                })
-                .attr('stroke-width', d => d === feature ? 2 : 0.5);
+        function showTooltip(e, feature) {
+            const name = feature.properties.name;
+            const row = state.data.find(d => d.Entity === name && d.Year === state.year);
+            const tip = d3.select('#tooltip');
+            tip.select('.tooltip-country').text(name);
+            tip.select('.tooltip-score').text(row && row["Average student's performance"] 
+                ? `Score: ${row["Average student's performance"].toFixed(1)}` : 'No data');
+            tip.classed('show', true).style('left', (e.pageX + 15) + 'px').style('top', (e.pageY - 28) + 'px');
+        }
 
-            const centroid = d3.geoCentroid(feature);
-            const targetRotation = [-centroid[0], -centroid[1]];
+        function zoomIn(feature) {
+            state.selected = feature;
+            state.zoomed = true;
+            highlightSelected();
+            updateInfo(feature);
+            if (state.rotationTimer) cancelAnimationFrame(state.rotationTimer);
 
-            d3.transition()
-                .duration(Config.transitionDuration)
+            const center = d3.geoCentroid(feature);
+            const targetRotate = [-center[0], -center[1]];
+            const currentRotate = projection.rotate();
+            const currentScale = projection.scale();
+            const targetScale = currentScale * 2.5;
+
+            d3.transition().duration(1000)
                 .tween('rotate', () => {
-                    const r = d3.interpolate(projection.rotate(), targetRotation);
-                    return t => {
-                        projection.rotate(r(t));
-                        refresh();
+                    const r = d3.interpolate(currentRotate, targetRotate);
+                    return (t) => { projection.rotate(r(t)); refresh(); };
+                })
+                .tween('zoom', () => {
+                    const s = d3.interpolate(currentScale, targetScale);
+                    return (t) => { 
+                        projection.scale(s(t)); 
+                        d3.select('#globe-circle').attr('r', s(t)); 
+                        refresh(); 
                     };
+                });
+        }
+
+        function panTo(feature) {
+            state.selected = feature;
+            highlightSelected();
+            updateInfo(feature);
+            const center = d3.geoCentroid(feature);
+            const targetRotate = [-center[0], -center[1]];
+            d3.transition().duration(800)
+                .tween('rotate', () => {
+                    const r = d3.interpolate(projection.rotate(), targetRotate);
+                    return (t) => { projection.rotate(r(t)); refresh(); };
                 });
         }
 
         function zoomOut() {
-            state.rotating = true;
-            state.selectedCountry = null;
-
-            els.globe.selectAll('path')
-                .attr('fill', d => {
-                    if (!d.properties.pisa) return Config.colors.landDefault;
-                    const score = d.properties.pisa.score;
-                    const minScore = 350;
-                    const maxScore = 550;
-                    const normalized = (score - minScore) / (maxScore - minScore);
-                    const intensity = Math.max(0.2, Math.min(1, normalized));
-                    const r = Math.floor(95 + (160 - 95) * intensity);
-                    const g = Math.floor(179 + (220 - 179) * intensity);
-                    const b = Math.floor(246 + (255 - 246) * intensity);
-                    return `rgba(${r}, ${g}, ${b}, ${0.3 + intensity * 0.4})`;
+            state.selected = null;
+            state.zoomed = false;
+            highlightSelected();
+            resetInfo();
+            d3.transition().duration(1000)
+                .tween('zoom', () => {
+                    const s = d3.interpolate(projection.scale(), Config.baseScale);
+                    return (t) => { 
+                        projection.scale(s(t)); 
+                        d3.select('#globe-circle').attr('r', s(t)); 
+                        refresh(); 
+                    };
                 })
-                .attr('stroke-width', 0.5);
-
-            startRotation();
+                .on('end', autoRotate);
         }
 
-        function startRotation() {
-            d3.timer(elapsed => {
-                if (!state.rotating) return true;
-                state.rotation[0] += Config.rotationSpeed;
-                projection.rotate(state.rotation);
-                refresh();
-            });
+        function highlightSelected() {
+            d3.selectAll('.country-path').classed('selected', d => state.selected === d);
         }
 
         function refresh() {
-            els.globe.selectAll('#countries path').attr('d', path);
+            d3.selectAll('.country-path').attr('d', pathGen);
         }
 
-        function setupPisaTooltip() {
-            els.searchInput.addEventListener('input', (e) => {
-                const query = e.target.value.toLowerCase();
-                if (query.length === 0) {
-                    els.searchResults.classList.remove('show');
-                    return;
+        function updateInfo(feature) {
+            const name = feature.properties.name;
+            const row = state.data.find(d => d.Entity === name && d.Year === state.year);
+            if (!row) { resetInfo(); return; }
+
+            els.description.classList.remove('default');
+            els.description.innerHTML = `
+                <div class="country-header">
+                    <div class="country-name">${name}</div>
+                    <div class="country-year">Year: ${state.year}</div>
+                </div>`;
+
+            const metrics = extractMetrics(row);
+            if (metrics.hasData) drawRadar(metrics);
+            else els.description.innerHTML += '<div style="font-size: 13px; color: rgba(255, 100, 100, 0.8); font-style: italic;">No data available for this country.</div>';
+        }
+
+        function resetInfo() {
+            els.description.classList.add('default');
+            els.description.innerHTML = `
+                <h2>How is it unequal?</h2>            
+                <p>In some parts of the world, classrooms glow with possibility, students have access to the internet, freedom to learn, and the support to dream. In others, the light is dimmer, opportunities fade where resources and hope run thin. These numbers whisper a truth: talent is everywhere, but opportunity is not.</p>
+                <p>Measured by <span class="pisa-term" id="pisa-term">PISA score</span>, it shows how well 15-year-olds perform in reading, math, and science.</p>
+                <div class="controls">
+                    <div>Drag to rotate the globe</div>
+                    <div>Scroll to zoom in and out</div>
+                    <div>Click on a country to focus</div>
+                    <div>Use the timeline to change year</div>
+                </div>`;
+            setupPisaTooltip();
+        }
+
+        function extractMetrics(row) {
+            const metrics = { 'Internet Users': 0, 'Happiness': 0, 'Academic Freedom': 0, 'Primary Enrollment': 0, 'Secondary Enrollment': 0, hasData: false, raw: {} };
+            const fields = [
+                { key: 'Internet Users', field: 'Ratio of internet users by population', scaled: 'none', fmt: v => v.toFixed(1) + '%' },
+                { key: 'Happiness', field: 'Happiness score', scaled: 'scaled Happiness score', fmt: v => v.toFixed(2) },
+                { key: 'Academic Freedom', field: 'Academic freedom index', scaled: 'scaled Academic freedom index', fmt: v => v.toFixed(3) },
+                { key: 'Primary Enrollment', field: 'Gross enrolment ratio in primary education', scaled: 'scaled Gross enrolment ratio in primary education', fmt: v => v.toFixed(1) + '%' },
+                { key: 'Secondary Enrollment', field: 'Gross enrolment ratio in secondary education', scaled: 'scaled Gross enrolment ratio in secondary education', fmt: v => v.toFixed(1) + '%' }
+            ];
+
+            let count = 0;
+            fields.forEach(f => {
+                const val = parseFloat(row[f.field]);
+                if (!isNaN(val) && val > 0) {
+                    const scaled = f.scaled !== 'none' ? parseFloat(row[f.scaled]) || 0 : val;
+                    metrics[f.key] = Math.min(100, scaled);
+                    metrics.raw[f.key] = f.fmt(val);
+                    count++;
                 }
+            });
+            metrics.hasData = count >= 3;
+            return metrics;
+        }
 
-                const matches = state.countries
-                    .filter(f => f.properties.name.toLowerCase().includes(query))
-                    .slice(0, 5);
+        function drawRadar(metrics) {
+            const container = document.createElement('div');
+            container.style.cssText = 'text-align: center; margin-top: 10px; margin-left: 15px;';
+            els.description.appendChild(container);
 
-                if (matches.length > 0) {
-                    els.searchResults.innerHTML = matches
-                        .map(f => `<div class="search-result-item" data-country="${f.properties.name}">${f.properties.name}</div>`)
-                        .join('');
-                    els.searchResults.classList.add('show');
+            const data = [
+                { axis: 'Internet Users', value: metrics['Internet Users'], raw: metrics.raw['Internet Users'] },
+                { axis: 'Happiness', value: metrics['Happiness'], raw: metrics.raw['Happiness'] },
+                { axis: 'Academic Freedom', value: metrics['Academic Freedom'], raw: metrics.raw['Academic Freedom'] },
+                { axis: 'Primary Enrollment', value: metrics['Primary Enrollment'], raw: metrics.raw['Primary Enrollment'] },
+                { axis: 'Secondary Enrollment', value: metrics['Secondary Enrollment'], raw: metrics.raw['Secondary Enrollment'] }
+            ];
 
-                    els.searchResults.querySelectorAll('.search-result-item').forEach(item => {
-                        item.addEventListener('click', () => selectFromSearch(item.dataset.country));
-                    });
+            const w = 200, h = 200, r = Math.min(w, h) / 2 - 25;
+            const svg = d3.select(container).append('svg')
+                .attr('width', w).attr('height', h)
+                .style('display', 'block').style('margin', '0 auto')
+                .append('g').attr('transform', `translate(${w / 2}, ${h / 2})`);
+
+            const angle = (Math.PI * 2) / data.length;
+            const scale = d3.scaleLinear().domain([0, 100]).range([0, r]);
+
+            for (let i = 1; i <= 5; i++) {
+                svg.append('circle').attr('r', (r / 5) * i)
+                    .attr('fill', 'none').attr('stroke', 'rgba(95, 179, 246, 0.2)').attr('stroke-width', 1);
+            }
+
+            data.forEach((d, i) => {
+                const a = angle * i - Math.PI / 2;
+                const x = r * Math.cos(a), y = r * Math.sin(a);
+                svg.append('line').attr('x1', 0).attr('y1', 0).attr('x2', x).attr('y2', y)
+                    .attr('stroke', 'rgba(95, 179, 246, 0.2)').attr('stroke-width', 1);
+
+                const labelRadius = r + 8;
+                const lx = labelRadius * Math.cos(a), ly = labelRadius * Math.sin(a);
+                const parts = d.axis.split(' ');
+
+                if (parts.length > 1) {
+                    svg.append('text').attr('x', lx).attr('y', ly - 5)
+                        .attr('text-anchor', 'middle').attr('font-size', '8px')
+                        .attr('fill', Config.colors.primary).attr('font-weight', '600').text(parts[0]);
+                    svg.append('text').attr('x', lx).attr('y', ly + 5)
+                        .attr('text-anchor', 'middle').attr('font-size', '8px')
+                        .attr('fill', Config.colors.primary).attr('font-weight', '600').text(parts.slice(1).join(' '));
                 } else {
-                    els.searchResults.classList.remove('show');
+                    svg.append('text').attr('x', lx).attr('y', ly)
+                        .attr('text-anchor', 'middle').attr('dy', '0.3em').attr('font-size', '8px')
+                        .attr('fill', Config.colors.primary).attr('font-weight', '600').text(d.axis);
                 }
             });
 
-            document.addEventListener('click', (e) => {
-                if (!els.searchInput.contains(e.target) && !els.searchResults.contains(e.target)) {
-                    els.searchResults.classList.remove('show');
+            let path = '';
+            data.forEach((d, i) => {
+                const a = angle * i - Math.PI / 2;
+                const x = scale(d.value) * Math.cos(a), y = scale(d.value) * Math.sin(a);
+                path += (i === 0 ? `M ${x} ${y}` : ` L ${x} ${y}`);
+            });
+            path += ' Z';
+
+            svg.append('path').attr('d', path)
+                .attr('fill', 'rgba(95, 179, 246, 0.25)')
+                .attr('stroke', Config.colors.primary)
+                .attr('stroke-width', 2).attr('stroke-linejoin', 'round');
+
+            data.forEach((d, i) => {
+                const a = angle * i - Math.PI / 2;
+                const x = scale(d.value) * Math.cos(a), y = scale(d.value) * Math.sin(a);
+                svg.append('circle').attr('cx', x).attr('cy', y).attr('r', 2)
+                    .attr('fill', Config.colors.primary).attr('stroke', 'white').attr('stroke-width', 1);
+            });
+
+            const legend = document.createElement('div');
+            legend.style.cssText = 'margin-top: 8px; font-size: 11px; line-height: 1.5; color: rgba(255, 255, 255, 0.85); text-align: left;';
+            legend.innerHTML = `<strong style="color: #5fb3f6; display: block; margin-bottom: 5px;">Metrics:</strong>
+                • <strong>Internet User by Population:</strong> ${data[0].raw}<br>
+                • <strong>Happiness Level (1-10):</strong> ${data[1].raw}<br>
+                • <strong>Academic Freedom (0-1):</strong> ${data[2].raw}<br>
+                • <strong>Primary School Enrolment Rate:</strong> ${data[3].raw}<br>
+                • <strong>Secondary School Enrolment Rate:</strong> ${data[4].raw}`;
+            els.description.appendChild(legend);
+        }
+
+        function updateStats() {
+            const yearData = state.data.filter(d => d.Year === state.year);
+            const scores = yearData.map(d => d["Average student's performance"]).filter(s => s != null && !isNaN(s));
+
+            state.stats.avg = d3.mean(scores);
+            state.stats.min = d3.min(scores);
+            state.stats.max = d3.max(scores);
+
+            d3.select('#legend-min').text(state.stats.min?.toFixed(1) || '-');
+            d3.select('#legend-max').text(state.stats.max?.toFixed(1) || '-');
+
+            let highest = { country: null, score: -Infinity };
+            let lowest = { country: null, score: Infinity };
+
+            yearData.forEach(row => {
+                const score = row["Average student's performance"];
+                if (score != null && !isNaN(score)) {
+                    if (score > highest.score) highest = { country: row.Entity, score };
+                    if (score < lowest.score) lowest = { country: row.Entity, score };
                 }
             });
+
+            state.stats.highest = highest.country;
+            state.stats.lowest = lowest.country;
+
+            els.highest.textContent = highest.country || '-';
+            els.highestScore.textContent = `Score: ${highest.score.toFixed(1)}`;
+            els.lowest.textContent = lowest.country || '-';
+            els.lowestScore.textContent = `Score: ${lowest.score.toFixed(1)}`;
+
+            els.highest.onclick = () => selectFromSearch(highest.country);
+            els.lowest.onclick = () => selectFromSearch(lowest.country);
+
+            d3.selectAll('.country-path').transition().duration(500)
+                .attr('fill', (d) => {
+                    const name = d.properties.name;
+                    const row = yearData.find(r => r.Entity === name);
+                    return row && row["Average student's performance"]
+                        ? scoreColor(row["Average student's performance"], state.stats.avg, state.stats.min, state.stats.max)
+                        : '#1e3a52';
+                })
+                .on('end', () => {
+                    d3.selectAll('.country-path')
+                        .classed('highest', d => d.properties.name === highest.country)
+                        .classed('lowest', d => d.properties.name === lowest.country);
+                });
         }
+
+        function autoRotate() {
+            if (state.rotationTimer) cancelAnimationFrame(state.rotationTimer);
+            
+            function animate() {
+                if (!state.dragging && !state.zoomed) {
+                    state.rotation.x += 0.15;
+                    projection.rotate([state.rotation.x, state.rotation.y]);
+                    refresh();
+                    state.rotationTimer = requestAnimationFrame(animate);
+                }
+            }
+            state.rotationTimer = requestAnimationFrame(animate);
+        }
+
+        function dragStart() {
+            state.dragging = true;
+            if (state.rotationTimer && !state.zoomed) cancelAnimationFrame(state.rotationTimer);
+        }
+
+        function dragging(e) {
+            const k = 75 / projection.scale();
+            const curr = projection.rotate();
+            state.rotation.x = curr[0] + e.dx * k;
+            state.rotation.y = Math.max(-90, Math.min(90, curr[1] - e.dy * k));
+            projection.rotate([state.rotation.x, state.rotation.y]);
+            refresh();
+        }
+
+        function dragEnd() {
+            state.dragging = false;
+            if (!state.zoomed) autoRotate();
+        }
+
+        function handleZoom(e) {
+            if (e.sourceEvent && e.sourceEvent.type === 'wheel') {
+                const newScale = Config.baseScale * e.transform.k;
+                projection.scale(newScale);
+                d3.select('#globe-circle').attr('r', newScale);
+                refresh();
+            }
+        }
+
+        function debounce(fn, delay) {
+            let timer;
+            return (e) => { clearTimeout(timer); timer = setTimeout(() => fn(e), delay); };
+        }
+
+        els.searchInput.addEventListener('input', debounce((e) => {
+            const query = e.target.value.trim().toLowerCase();
+            if (query.length === 0) { els.searchResults.classList.remove('show'); return; }
+
+            const countries = [...new Set(state.data.map(d => d.Entity))];
+            const filtered = countries.filter(c => c.toLowerCase().includes(query)).sort().slice(0, 8);
+
+            if (filtered.length === 0) {
+                els.searchResults.innerHTML = '<div class="search-result-item" style="color: rgba(255, 255, 255, 0.5);">No results</div>';
+                els.searchResults.classList.add('show');
+                return;
+            }
+
+            els.searchResults.innerHTML = filtered.map(c => `<div class="search-result-item" data-country="${c}">${c}</div>`).join('');
+            document.querySelectorAll('.search-result-item[data-country]').forEach(item => {
+                item.addEventListener('click', () => selectFromSearch(item.getAttribute('data-country')));
+            });
+            els.searchResults.classList.add('show');
+        }, 300));
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-container')) els.searchResults.classList.remove('show');
+        });
 
         function selectFromSearch(country) {
             const feature = state.countries.find(f => f.properties.name === country);
@@ -1000,8 +1284,8 @@
 
             const desc = descriptions[activeId];
             document.getElementById('scatter-description').innerHTML = `
-                <h3 style="margin: 0 0 12px 0; font-size: clamp(14px, 2vw, 16px); font-weight: 600; color: #5fb3f6;">${desc.title}</h3>
-                <p style="margin: 0; font-size: clamp(11px, 1.8vw, 13px); line-height: 1.6;">${desc.text}</p>`;
+                <h3 style="margin: 0 0 12px 0; font-size: 16px; font-weight: 600; color: #5fb3f6;">${desc.title}</h3>
+                <p style="margin: 0; font-size: 13px; line-height: 1.6;">${desc.text}</p>`;
         }
 
         window.addEventListener('resize', () => {
@@ -1032,38 +1316,15 @@
             const validData = data.filter(d => d[variable] != null && d['exam_score'] != null && !isNaN(d[variable]) && !isNaN(d['exam_score']));
             if (validData.length === 0) { console.error('No valid data for scatter plot'); return; }
 
-            // Responsive sizing for scatter plot
-            const isMobile = Config.width < 768;
-            const isSmallMobile = Config.width < 480;
-            
-            let descBoxWidth, plotWidth, plotHeight, margin, centerX, centerY;
-            
-            if (isSmallMobile) {
-                descBoxWidth = 0; // Hide description box on small mobile
-                plotWidth = Math.min(Config.width - 40, 400);
-                plotHeight = Math.min(Config.height * 0.5, 400);
-                margin = { top: 20, right: 20, bottom: 40, left: 50 };
-                centerX = (Config.width - plotWidth) / 2;
-                centerY = Config.height * 0.25;
-            } else if (isMobile) {
-                descBoxWidth = 0; // Hide description box on mobile
-                plotWidth = Math.min(Config.width - 60, 500);
-                plotHeight = Math.min(Config.height * 0.55, 500);
-                margin = { top: 25, right: 25, bottom: 45, left: 55 };
-                centerX = (Config.width - plotWidth) / 2;
-                centerY = Config.height * 0.22;
-            } else {
-                descBoxWidth = Math.min(350, Config.width * 0.25);
-                const availableWidth = Config.width - descBoxWidth - 80;
-                plotWidth = Math.max(Math.min(availableWidth * 0.9, 1200), 400);
-                plotHeight = Math.max(Math.min(Config.height * 0.60, 600), 350);
-                margin = { top: 30, right: 30, bottom: 50, left: 60 };
-                centerX = Math.max(descBoxWidth + 40, descBoxWidth + (Config.width - descBoxWidth - plotWidth) / 2);
-                centerY = (Config.height - plotHeight) / 2;
-            }
-
+            const descBoxWidth = Math.min(350, Config.width * 0.25);
+            const availableWidth = Config.width - descBoxWidth - 80;
+            const plotWidth = Math.max(Math.min(availableWidth * 0.9, 1200), 400);
+            const plotHeight = Math.max(Math.min(Config.height * 0.60, 600), 350);
+            const margin = { top: 30, right: 30, bottom: 50, left: 60 };
             const width = plotWidth - margin.left - margin.right;
             const height = plotHeight - margin.top - margin.bottom;
+            const centerX = Math.max(descBoxWidth + 40, descBoxWidth + (Config.width - descBoxWidth - plotWidth) / 2);
+            const centerY = (Config.height - plotHeight) / 2;
 
             els.chart.selectAll('*').remove();
 
@@ -1083,11 +1344,11 @@
             g.append('g').attr('transform', `translate(0,${height})`).call(d3.axisBottom(xScale))
                 .attr('color', 'rgba(255, 255, 255, 0.6)')
                 .append('text').attr('x', width / 2).attr('y', 40).attr('fill', '#5fb3f6')
-                .attr('text-anchor', 'middle').attr('font-size', isMobile ? '13px' : '16px').attr('font-weight', '600').text(xAxisLabel);
+                .attr('text-anchor', 'middle').attr('font-size', '16px').attr('font-weight', '600').text(xAxisLabel);
 
             g.append('g').call(d3.axisLeft(yScale)).attr('color', 'rgba(255, 255, 255, 0.6)')
                 .append('text').attr('transform', 'rotate(-90)').attr('x', -height / 2).attr('y', -45)
-                .attr('fill', '#5fb3f6').attr('text-anchor', 'middle').attr('font-size', isMobile ? '13px' : '16px')
+                .attr('fill', '#5fb3f6').attr('text-anchor', 'middle').attr('font-size', '16px')
                 .attr('font-weight', '600').text('Exam Score');
 
             g.insert('rect', ':first-child')
@@ -1099,15 +1360,12 @@
             g.append('g').attr('class', 'grid').attr('opacity', 0.1)
                 .call(d3.axisLeft(yScale).tickSize(-width).tickFormat(''));
 
-            const dotRadius = isMobile ? 4 : 5;
-            const hoverRadius = isMobile ? 6 : 7;
-
             g.selectAll('.dot').data(validData).enter().append('circle').attr('class', 'dot')
-                .attr('cx', d => xScale(d[variable])).attr('cy', d => yScale(d['exam_score'])).attr('r', dotRadius)
+                .attr('cx', d => xScale(d[variable])).attr('cy', d => yScale(d['exam_score'])).attr('r', 5)
                 .attr('fill', d => d['gender'] === 'Male' ? '#5fb3f6' : '#ff6b9d')
                 .attr('opacity', 0.7).attr('stroke', 'white').attr('stroke-width', 1.5)
                 .on('mouseover', function(e, d) {
-                    d3.select(this).attr('r', hoverRadius).attr('opacity', 1);
+                    d3.select(this).attr('r', 7).attr('opacity', 1);
                     const tooltip = d3.select('#tooltip');
                     tooltip.select('.tooltip-country').text(`${d['gender']} | ${xAxisLabel}: ${d[variable].toFixed(1)}`);
                     tooltip.select('.tooltip-score').text(`Exam Score: ${d['exam_score'].toFixed(1)}`);
@@ -1115,16 +1373,14 @@
                 })
                 .on('mousemove', (e) => d3.select('#tooltip').style('left', (e.pageX + 15) + 'px').style('top', (e.pageY - 28) + 'px'))
                 .on('mouseout', function() {
-                    d3.select(this).attr('r', dotRadius).attr('opacity', 0.7);
+                    d3.select(this).attr('r', 5).attr('opacity', 0.7);
                     d3.select('#tooltip').classed('show', false);
                 });
 
-            const titleFontSize = isMobile ? '16px' : '22px';
             els.chart.append('text').attr('x', centerX + plotWidth / 2).attr('y', centerY + 20)
-                .attr('text-anchor', 'middle').attr('fill', '#5fb3f6').attr('font-size', titleFontSize)
+                .attr('text-anchor', 'middle').attr('fill', '#5fb3f6').attr('font-size', '22px')
                 .attr('font-weight', '600').text(`${xAxisLabel} vs Exam Score`);
 
-            // Legend
             const legendX = centerX + plotWidth - 150;
             const legendY = centerY + 50;
 
@@ -1132,15 +1388,15 @@
                 .attr('width', 130).attr('height', 70).attr('fill', 'rgb(10, 20, 40)')
                 .attr('stroke', 'rgba(95, 179, 246, 0.3)').attr('stroke-width', 1.5).attr('rx', 8);
 
-            els.chart.append('circle').attr('cx', legendX).attr('cy', legendY).attr('r', dotRadius)
+            els.chart.append('circle').attr('cx', legendX).attr('cy', legendY).attr('r', 5)
                 .attr('fill', '#5fb3f6').attr('opacity', 0.7);
             els.chart.append('text').attr('x', legendX + 20).attr('y', legendY + 5)
-                .attr('fill', 'rgba(255, 255, 255, 0.8)').attr('font-size', isMobile ? '11px' : '13px').text('Male');
+                .attr('fill', 'rgba(255, 255, 255, 0.8)').attr('font-size', '13px').text('Male');
 
-            els.chart.append('circle').attr('cx', legendX).attr('cy', legendY + 30).attr('r', dotRadius)
+            els.chart.append('circle').attr('cx', legendX).attr('cy', legendY + 30).attr('r', 5)
                 .attr('fill', '#ff6b9d').attr('opacity', 0.7);
             els.chart.append('text').attr('x', legendX + 20).attr('y', legendY + 35)
-                .attr('fill', 'rgba(255, 255, 255, 0.8)').attr('font-size', isMobile ? '11px' : '13px').text('Female');
+                .attr('fill', 'rgba(255, 255, 255, 0.8)').attr('font-size', '13px').text('Female');
         }
 
         setupGlobe();
