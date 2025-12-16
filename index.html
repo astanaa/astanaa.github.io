@@ -532,155 +532,110 @@
             .legend-container { bottom: 40px; padding: 10px 15px; }
         }
 
-        /* Mobile Responsive Adjustments - Tablet */
-        @media (max-width: 768px) {
-            .title { 
-                font-size: 1.3em !important; 
-                top: 15px !important; 
-                left: 15px !important; 
-            }
-            .nav-container { 
-                top: 15px !important; 
-                gap: 6px !important; 
-                padding: 6px !important;
-            }
-            .nav-btn { 
-                padding: 8px 16px !important; 
-                font-size: 11px !important; 
-            }
-            .search-container { 
-                top: 70px !important; 
-                right: 15px !important; 
-                left: 15px !important;
-                width: calc(100vw - 30px) !important;
-            }
-            .search-input { 
-                font-size: 12px !important; 
-                padding: 10px 14px !important; 
-            }
-            .search-result-item { 
-                font-size: 12px !important; 
-                padding: 10px 14px !important; 
-            }
-            .timeline-container { 
-                bottom: 80px !important; 
-                right: 15px !important; 
-                height: 45vh !important; 
-            }
-            .year-dot {
-                width: 10px !important;
-                height: 10px !important;
-            }
-            .year-label {
-                font-size: 14px !important;
-                margin-left: 20px !important;
-            }
-            .legend-container { 
-                bottom: 15px !important; 
-                padding: 10px 15px !important; 
-                left: 15px !important;
-                transform: none !important;
-            }
-            .legend-gradient {
-                width: 180px !important;
-            }
-            .description-box { 
-                top: auto !important;
-                bottom: 90px !important; 
-                left: 15px !important; 
-                width: calc(100vw - 240px) !important;
-                max-width: 300px !important;
-                max-height: calc(100vh - 450px) !important;
-                padding: 15px !important;
-                font-size: 12px !important;
-            }
-            .description-box h2 { 
-                font-size: 18px !important; 
-                margin-bottom: 12px !important;
-            }
-            .description-box p { 
-                font-size: 11px !important; 
-                line-height: 1.5 !important;
-            }
-            .controls {
-                font-size: 10px !important;
-                margin-top: 15px !important;
-            }
-            .stats-box { 
-                top: 125px !important; 
-                left: 15px !important; 
-                width: calc(100vw - 30px) !important;
-                max-width: 280px !important;
-                max-height: calc(100vh - 300px) !important;
-                padding: 15px !important;
-            }
-            .stats-box h3 { 
-                font-size: 14px !important; 
-            }
-            .stat-label {
-                font-size: 10px !important;
-            }
-            .stat-country { 
-                font-size: 13px !important; 
-            }
-            .stat-score { 
-                font-size: 11px !important; 
-            }
-            .reset-button { 
-                bottom: 15px !important; 
-                left: 15px !important; 
-                width: calc(100vw - 240px) !important;
-                max-width: 300px !important;
-                padding: 10px 18px !important;
-                font-size: 12px !important;
-            }
-            .fade-top-overlay { 
-                height: 110px !important; 
-            }
-            #chart-container .box-style { 
-                left: 15px !important; 
-                top: 120px !important;
-                transform: none !important; 
-                width: calc(100vw - 30px) !important;
-                max-width: 280px !important; 
-                max-height: calc(100vh - 300px) !important;
-                padding: 15px !important;
-            }
-            #chart-container .box-style h3 { 
-                font-size: 14px !important; 
-                margin-bottom: 10px !important;
-            }
-            #chart-container .box-style p { 
-                font-size: 11px !important; 
-                line-height: 1.5 !important;
-            }
-            #chart-container > div:last-child {
-                bottom: 15px !important;
-                padding: 8px 12px !important;
-                gap: 8px !important;
-                flex-wrap: wrap !important;
-                max-width: 90vw !important;
-            }
-            .chart-btn { 
-                padding: 8px 14px !important; 
-                font-size: 11px !important; 
-            }
+        /* Comprehensive Viewport-Based Responsive Scaling */
+        .title {
+            font-size: clamp(1em, 2.5vw, 2em) !important;
+            top: clamp(20px, 2.5vh, 40px) !important;
+            left: clamp(20px, 2vw, 40px) !important;
         }
 
-        /* Mobile Responsive Adjustments - Phone */
+        .nav-btn {
+            padding: clamp(8px, 0.8vh, 10px) clamp(15px, 1.5vw, 25px) !important;
+            font-size: clamp(11px, 1vw, 14px) !important;
+        }
+
+        .search-container {
+            width: clamp(200px, 18vw, 280px) !important;
+        }
+
+        .search-input, .search-result-item {
+            font-size: clamp(12px, 0.9vw, 14px) !important;
+        }
+
+        .description-box {
+            width: clamp(250px, 22vw, 350px) !important;
+            padding: clamp(15px, 1.5vw, 20px) !important;
+        }
+
+        .description-box h2 {
+            font-size: clamp(18px, 1.5vw, 24px) !important;
+        }
+
+        .description-box p, .controls {
+            font-size: clamp(11px, 0.9vw, 14px) !important;
+        }
+
+        .stats-box {
+            width: clamp(200px, 17vw, 263px) !important;
+            padding: clamp(15px, 1.5vw, 20px) !important;
+        }
+
+        .stats-box h3 {
+            font-size: clamp(13px, 1vw, 16px) !important;
+        }
+
+        .stat-label {
+            font-size: clamp(10px, 0.75vw, 12px) !important;
+        }
+
+        .stat-country {
+            font-size: clamp(12px, 0.9vw, 14px) !important;
+        }
+
+        .stat-score {
+            font-size: clamp(11px, 0.8vw, 13px) !important;
+        }
+
+        .reset-button {
+            width: clamp(200px, 17vw, 263px) !important;
+            font-size: clamp(12px, 0.9vw, 14px) !important;
+        }
+
+        .year-label {
+            font-size: clamp(14px, 1vw, 16px) !important;
+        }
+
+        .legend-gradient {
+            width: clamp(150px, 12vw, 200px) !important;
+        }
+
+        .legend-title, .legend-labels, .legend-numbers {
+            font-size: clamp(9px, 0.7vw, 12px) !important;
+        }
+
+        #chart-container .box-style {
+            width: clamp(180px, 18vw, 300px) !important;
+            padding: clamp(15px, 1.5vw, 20px) !important;
+        }
+
+        #chart-container .box-style h3 {
+            font-size: clamp(14px, 1vw, 16px) !important;
+        }
+
+        #chart-container .box-style p {
+            font-size: clamp(11px, 0.8vw, 13px) !important;
+        }
+
+        .chart-btn {
+            padding: clamp(7px, 0.5vh, 8px) clamp(15px, 1.2vw, 20px) !important;
+            font-size: clamp(12px, 0.9vw, 14px) !important;
+        }
+
+        .landing-paragraph {
+            font-size: clamp(14px, 1.2vw, 20px) !important;
+        }
+
+        .unesco-link a {
+            font-size: clamp(12px, 1vw, 16px) !important;
+        }
+
+        .uncover-btn {
+            padding: clamp(14px, 1.2vh, 18px) clamp(35px, 3vw, 45px) !important;
+            font-size: clamp(14px, 1.2vw, 20px) !important;
+        }
+
+        /* Mobile Phone Adjustments */
         @media (max-width: 480px) {
-            .landing-paragraph { 
-                font-size: 13px !important; 
-                line-height: 1.6 !important; 
-                padding: 15px !important;
-            }
-            .unesco-link { 
-                font-size: 11px !important; 
-            }
-            .uncover-btn { 
-                padding: 12px 28px !important; 
-                font-size: 13px !important; 
-            }
             .title { 
                 font-size: 1em !important; 
                 top: 10px !important; 
@@ -688,8 +643,6 @@
             }
             .nav-container { 
                 top: 10px !important; 
-                gap: 5px !important; 
-                padding: 5px !important;
             }
             .nav-btn { 
                 padding: 6px 12px !important; 
@@ -701,14 +654,6 @@
                 left: 10px !important; 
                 width: calc(100vw - 20px) !important;
             }
-            .search-input { 
-                font-size: 11px !important; 
-                padding: 8px 12px !important; 
-            }
-            .search-result-item { 
-                font-size: 11px !important; 
-                padding: 8px 12px !important; 
-            }
             .timeline-container { 
                 display: none !important;
             }
@@ -716,22 +661,7 @@
                 bottom: 10px !important; 
                 left: 10px !important;
                 right: 10px !important;
-                transform: none !important;
-                padding: 8px 12px !important;
                 width: calc(100vw - 20px) !important;
-            }
-            .legend-gradient { 
-                width: 140px !important; 
-                height: 10px !important; 
-            }
-            .legend-title {
-                font-size: 11px !important;
-            }
-            .legend-labels {
-                font-size: 9px !important;
-            }
-            .legend-numbers {
-                font-size: 10px !important;
             }
             .description-box { 
                 display: none !important;
@@ -741,115 +671,25 @@
                 left: 10px !important; 
                 right: 10px !important;
                 width: calc(100vw - 20px) !important;
-                max-width: none !important;
-                max-height: calc(100vh - 260px) !important;
-                padding: 12px !important;
-            }
-            .stats-box h3 { 
-                font-size: 13px !important; 
-                margin-bottom: 12px !important;
-            }
-            .stat-item {
-                margin-bottom: 12px !important;
-                padding-bottom: 10px !important;
-            }
-            .stat-label {
-                font-size: 9px !important;
-            }
-            .stat-country { 
-                font-size: 12px !important; 
-            }
-            .stat-score { 
-                font-size: 10px !important; 
             }
             .reset-button { 
                 bottom: 60px !important; 
                 left: 10px !important; 
                 right: 10px !important;
                 width: calc(100vw - 20px) !important;
-                padding: 10px 15px !important;
-                font-size: 12px !important;
-            }
-            .fade-top-overlay { 
-                height: 100px !important; 
             }
             #chart-container .box-style { 
                 left: 10px !important; 
                 right: 10px !important;
                 top: 105px !important; 
-                transform: none !important;
                 width: calc(100vw - 20px) !important;
-                max-width: none !important;
-                max-height: calc(100vh - 280px) !important;
-                padding: 12px !important;
-            }
-            #chart-container .box-style h3 { 
-                font-size: 13px !important; 
-                margin-bottom: 8px !important;
-            }
-            #chart-container .box-style p { 
-                font-size: 10px !important; 
-                line-height: 1.4 !important;
             }
             #chart-container > div:last-child {
                 bottom: 10px !important;
                 left: 10px !important;
                 right: 10px !important;
-                transform: none !important;
-                padding: 6px 8px !important;
-                gap: 6px !important;
-                flex-wrap: wrap !important;
                 width: calc(100vw - 20px) !important;
-                max-width: none !important;
-                justify-content: center !important;
-            }
-            .chart-btn { 
-                padding: 6px 12px !important; 
-                font-size: 10px !important; 
-                flex: 1 1 auto !important;
-                min-width: 80px !important;
-            }
-        }
-
-        /* Landscape Mobile */
-        @media (max-height: 600px) and (orientation: landscape) {
-            .title { 
-                font-size: 0.9em !important; 
-                top: 8px !important; 
-                left: 8px !important; 
-            }
-            .nav-container { 
-                top: 8px !important; 
-            }
-            .search-container { 
-                top: 48px !important; 
-            }
-            .timeline-container { 
-                bottom: 10px !important; 
-                right: 10px !important; 
-                height: 70vh !important; 
-            }
-            .legend-container { 
-                bottom: 10px !important; 
-                left: 10px !important;
-            }
-            .description-box { 
-                bottom: 65px !important;
-                max-height: calc(100vh - 250px) !important;
-            }
-            .stats-box { 
-                top: 100px !important; 
-                max-height: calc(100vh - 240px) !important;
-            }
-            .reset-button { 
-                bottom: 10px !important; 
-            }
-            #chart-container .box-style { 
-                top: 90px !important; 
-                max-height: calc(100vh - 180px) !important;
-            }
-            #chart-container > div:last-child { 
-                bottom: 8px !important; 
+                flex-wrap: wrap !important;
             }
         }
     </style>
