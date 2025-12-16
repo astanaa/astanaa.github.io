@@ -532,11 +532,17 @@
             .legend-container { bottom: 40px; padding: 10px 15px; }
         }
 
-        /* Comprehensive Viewport-Based Responsive Scaling */
+        /* Comprehensive Viewport-Based Responsive Scaling and Positioning */
         .title {
             font-size: clamp(1em, 2.5vw, 2em) !important;
-            top: clamp(20px, 2.5vh, 40px) !important;
-            left: clamp(20px, 2vw, 40px) !important;
+            top: clamp(15px, 2.5vh, 40px) !important;
+            left: clamp(15px, 1.5vw, 40px) !important;
+        }
+
+        .nav-container {
+            top: clamp(12px, 1.9vh, 30px) !important;
+            gap: clamp(6px, 0.6vw, 15px) !important;
+            padding: clamp(5px, 0.5vw, 8px) !important;
         }
 
         .nav-btn {
@@ -545,93 +551,256 @@
         }
 
         .search-container {
+            top: clamp(35px, 2.8vh, 45px) !important;
+            right: clamp(20px, 2.2vw, 57px) !important;
             width: clamp(200px, 18vw, 280px) !important;
         }
 
         .search-input, .search-result-item {
+            padding: clamp(8px, 0.75vh, 12px) clamp(12px, 1vw, 16px) !important;
             font-size: clamp(12px, 0.9vw, 14px) !important;
         }
 
+        .fade-top-overlay {
+            height: clamp(100px, 9.4vh, 150px) !important;
+        }
+
         .description-box {
+            top: clamp(220px, 20.5vh, 328px) !important;
+            left: clamp(15px, 1.5vw, 40px) !important;
             width: clamp(250px, 22vw, 350px) !important;
-            padding: clamp(15px, 1.5vw, 20px) !important;
+            max-height: clamp(250px, 40vh, calc(100vh - 420px)) !important;
+            padding: clamp(12px, 1.25vw, 20px) !important;
         }
 
         .description-box h2 {
-            font-size: clamp(18px, 1.5vw, 24px) !important;
+            font-size: clamp(16px, 1.5vw, 24px) !important;
+            margin-bottom: clamp(10px, 0.9vh, 15px) !important;
         }
 
-        .description-box p, .controls {
-            font-size: clamp(11px, 0.9vw, 14px) !important;
+        .description-box p {
+            font-size: clamp(11px, 0.88vw, 14px) !important;
+            line-height: 1.6 !important;
+            margin-bottom: clamp(8px, 0.75vh, 12px) !important;
+        }
+
+        .controls {
+            font-size: clamp(9px, 0.75vw, 12px) !important;
+            margin-top: clamp(12px, 1.25vh, 20px) !important;
+            padding-top: clamp(10px, 0.94vh, 15px) !important;
         }
 
         .stats-box {
+            top: clamp(70px, 5.6vh, 90px) !important;
+            left: clamp(15px, 1.5vw, 40px) !important;
             width: clamp(200px, 17vw, 263px) !important;
-            padding: clamp(15px, 1.5vw, 20px) !important;
+            max-height: clamp(200px, 45vh, calc(100vh - 180px)) !important;
+            padding: clamp(12px, 1.25vw, 20px) !important;
         }
 
         .stats-box h3 {
             font-size: clamp(13px, 1vw, 16px) !important;
+            margin-bottom: clamp(10px, 0.94vh, 15px) !important;
+        }
+
+        .stat-item {
+            margin-bottom: clamp(10px, 0.94vh, 15px) !important;
+            padding-bottom: clamp(8px, 0.75vh, 12px) !important;
         }
 
         .stat-label {
-            font-size: clamp(10px, 0.75vw, 12px) !important;
+            font-size: clamp(9px, 0.75vw, 12px) !important;
+            margin-bottom: 4px !important;
         }
 
         .stat-country {
-            font-size: clamp(12px, 0.9vw, 14px) !important;
+            font-size: clamp(12px, 0.88vw, 14px) !important;
+            margin-bottom: 3px !important;
         }
 
         .stat-score {
-            font-size: clamp(11px, 0.8vw, 13px) !important;
+            font-size: clamp(11px, 0.81vw, 13px) !important;
         }
 
         .reset-button {
+            bottom: clamp(15px, 1.56vh, 25px) !important;
+            left: clamp(15px, 1.5vw, 40px) !important;
             width: clamp(200px, 17vw, 263px) !important;
-            font-size: clamp(12px, 0.9vw, 14px) !important;
+            padding: clamp(8px, 0.75vh, 12px) clamp(12px, 1.25vw, 20px) !important;
+            font-size: clamp(11px, 0.88vw, 14px) !important;
+        }
+
+        .timeline-container {
+            bottom: clamp(70px, 6.25vh, 100px) !important;
+            right: clamp(70px, 4.7vw, 120px) !important;
+            height: clamp(350px, 43.75vh, 70vh) !important;
+        }
+
+        .year-dot {
+            width: clamp(8px, 0.75vw, 12px) !important;
+            height: clamp(8px, 0.75vw, 12px) !important;
+            left: clamp(-4px, -0.375vw, -5px) !important;
         }
 
         .year-label {
-            font-size: clamp(14px, 1vw, 16px) !important;
+            font-size: clamp(13px, 1vw, 16px) !important;
+            margin-left: clamp(18px, 1.56vw, 25px) !important;
+        }
+
+        .year-marker.active .year-label {
+            font-size: clamp(15px, 1.13vw, 18px) !important;
+        }
+
+        .legend-container {
+            bottom: clamp(12px, 1.56vh, 25px) !important;
+            padding: clamp(8px, 0.75vh, 12px) clamp(12px, 1.25vw, 20px) !important;
+        }
+
+        .legend-title {
+            font-size: clamp(10px, 0.75vw, 12px) !important;
+            margin-bottom: clamp(4px, 0.38vh, 6px) !important;
         }
 
         .legend-gradient {
-            width: clamp(150px, 12vw, 200px) !important;
+            width: clamp(140px, 12.5vw, 200px) !important;
+            height: clamp(10px, 0.94vh, 15px) !important;
+            margin-bottom: clamp(3px, 0.31vh, 5px) !important;
         }
 
-        .legend-title, .legend-labels, .legend-numbers {
-            font-size: clamp(9px, 0.7vw, 12px) !important;
+        .legend-labels {
+            font-size: clamp(8px, 0.63vw, 10px) !important;
+        }
+
+        .legend-numbers {
+            font-size: clamp(9px, 0.69vw, 11px) !important;
+            margin-top: 2px !important;
+        }
+
+        .pisa-tooltip {
+            padding: clamp(8px, 0.75vh, 12px) clamp(10px, 0.94vw, 15px) !important;
+            font-size: clamp(10px, 0.75vw, 12px) !important;
+            max-width: clamp(200px, 17.5vw, 280px) !important;
+        }
+
+        #tooltip {
+            padding: clamp(8px, 0.75vh, 12px) clamp(10px, 0.94vw, 16px) !important;
+            font-size: clamp(11px, 0.81vw, 13px) !important;
+        }
+
+        .tooltip-country {
+            font-size: clamp(12px, 0.88vw, 14px) !important;
+            margin-bottom: clamp(4px, 0.38vh, 6px) !important;
+        }
+
+        .tooltip-score {
+            font-size: clamp(10px, 0.75vw, 12px) !important;
         }
 
         #chart-container .box-style {
-            width: clamp(180px, 18vw, 300px) !important;
-            padding: clamp(15px, 1.5vw, 20px) !important;
+            left: clamp(15px, 1.5vw, 40px) !important;
+            top: 50% !important;
+            width: clamp(180px, 18.75vw, 300px) !important;
+            max-height: clamp(280px, 43.75vh, 70vh) !important;
+            padding: clamp(12px, 1.25vw, 20px) !important;
         }
 
         #chart-container .box-style h3 {
-            font-size: clamp(14px, 1vw, 16px) !important;
+            font-size: clamp(13px, 1vw, 16px) !important;
+            margin-bottom: clamp(8px, 0.75vh, 12px) !important;
         }
 
         #chart-container .box-style p {
-            font-size: clamp(11px, 0.8vw, 13px) !important;
+            font-size: clamp(11px, 0.81vw, 13px) !important;
+            line-height: 1.6 !important;
+        }
+
+        #chart-container > div:last-child {
+            bottom: clamp(30px, 3.13vh, 50px) !important;
+            padding: clamp(6px, 0.63vh, 10px) clamp(10px, 0.94vw, 15px) !important;
+            gap: clamp(6px, 0.63vw, 10px) !important;
         }
 
         .chart-btn {
-            padding: clamp(7px, 0.5vh, 8px) clamp(15px, 1.2vw, 20px) !important;
-            font-size: clamp(12px, 0.9vw, 14px) !important;
+            padding: clamp(6px, 0.5vh, 8px) clamp(12px, 1.25vw, 20px) !important;
+            font-size: clamp(11px, 0.88vw, 14px) !important;
         }
 
         .landing-paragraph {
-            font-size: clamp(14px, 1.2vw, 20px) !important;
+            font-size: clamp(13px, 1.25vw, 20px) !important;
+            line-height: 1.8 !important;
+            margin-bottom: clamp(10px, 0.94vh, 15px) !important;
+        }
+
+        .landing-content {
+            padding: clamp(20px, 2.5vw, 40px) !important;
+        }
+
+        .unesco-link {
+            margin-bottom: clamp(20px, 2.19vh, 35px) !important;
         }
 
         .unesco-link a {
-            font-size: clamp(12px, 1vw, 16px) !important;
+            font-size: clamp(11px, 1vw, 16px) !important;
         }
 
         .uncover-btn {
-            padding: clamp(14px, 1.2vh, 18px) clamp(35px, 3vw, 45px) !important;
-            font-size: clamp(14px, 1.2vw, 20px) !important;
+            padding: clamp(12px, 1.13vh, 18px) clamp(30px, 2.81vw, 45px) !important;
+            font-size: clamp(13px, 1.25vw, 20px) !important;
+            letter-spacing: clamp(0.5px, 0.06vw, 1px) !important;
+        }
+
+        /* Tablet Adjustments */
+        @media (max-width: 768px) {
+            .timeline-container {
+                bottom: clamp(60px, 7.5vh, 80px) !important;
+                right: clamp(15px, 2vw, 20px) !important;
+                height: clamp(300px, 37.5vh, 50vh) !important;
+            }
+
+            .legend-container {
+                left: clamp(15px, 2vw, 20px) !important;
+                transform: none !important;
+                max-width: calc(100vw - 150px) !important;
+            }
+
+            .description-box {
+                top: auto !important;
+                bottom: clamp(70px, 8.75vh, 100px) !important;
+                left: clamp(15px, 2vw, 20px) !important;
+                width: calc(100vw - 200px) !important;
+                max-width: 320px !important;
+                max-height: calc(100vh - 400px) !important;
+            }
+
+            .stats-box {
+                top: clamp(100px, 12.5vh, 125px) !important;
+                left: clamp(15px, 2vw, 20px) !important;
+                width: calc(100vw - 30px) !important;
+                max-width: 320px !important;
+                max-height: calc(100vh - 280px) !important;
+            }
+
+            .reset-button {
+                bottom: clamp(12px, 1.5vh, 15px) !important;
+                left: clamp(15px, 2vw, 20px) !important;
+                width: calc(100vw - 200px) !important;
+                max-width: 320px !important;
+            }
+
+            #chart-container .box-style {
+                top: clamp(100px, 12.5vh, 120px) !important;
+                left: clamp(15px, 2vw, 20px) !important;
+                width: calc(100vw - 30px) !important;
+                max-width: 320px !important;
+                max-height: calc(100vh - 280px) !important;
+            }
+
+            #chart-container > div:last-child {
+                bottom: clamp(12px, 1.5vh, 15px) !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                max-width: 90vw !important;
+            }
         }
 
         /* Mobile Phone Adjustments */
@@ -641,55 +810,181 @@
                 top: 10px !important; 
                 left: 10px !important; 
             }
+
             .nav-container { 
-                top: 10px !important; 
+                top: 10px !important;
+                gap: 5px !important;
+                padding: 5px !important;
             }
+
             .nav-btn { 
                 padding: 6px 12px !important; 
                 font-size: 10px !important; 
             }
+
             .search-container { 
                 top: 55px !important; 
                 right: 10px !important; 
                 left: 10px !important; 
                 width: calc(100vw - 20px) !important;
             }
+
+            .search-input {
+                padding: 8px 12px !important;
+                font-size: 11px !important;
+            }
+
             .timeline-container { 
                 display: none !important;
             }
+
             .legend-container { 
                 bottom: 10px !important; 
                 left: 10px !important;
                 right: 10px !important;
                 width: calc(100vw - 20px) !important;
+                padding: 8px 10px !important;
             }
+
+            .legend-gradient {
+                width: clamp(120px, 35vw, 160px) !important;
+            }
+
             .description-box { 
                 display: none !important;
             }
+
             .stats-box { 
                 top: 110px !important; 
                 left: 10px !important; 
                 right: 10px !important;
                 width: calc(100vw - 20px) !important;
+                max-height: calc(100vh - 260px) !important;
+                padding: 12px !important;
             }
+
+            .stats-box h3 {
+                font-size: clamp(12px, 3.5vw, 15px) !important;
+                margin-bottom: 10px !important;
+            }
+
+            .stat-item {
+                margin-bottom: 10px !important;
+                padding-bottom: 8px !important;
+            }
+
+            .stat-label {
+                font-size: clamp(9px, 2.5vw, 11px) !important;
+            }
+
+            .stat-country {
+                font-size: clamp(11px, 3vw, 13px) !important;
+            }
+
+            .stat-score {
+                font-size: clamp(10px, 2.8vw, 12px) !important;
+            }
+
             .reset-button { 
                 bottom: 60px !important; 
                 left: 10px !important; 
                 right: 10px !important;
                 width: calc(100vw - 20px) !important;
+                padding: 10px 15px !important;
+                font-size: clamp(11px, 3vw, 13px) !important;
             }
+
+            .fade-top-overlay { 
+                height: 100px !important; 
+            }
+
             #chart-container .box-style { 
                 left: 10px !important; 
                 right: 10px !important;
                 top: 105px !important; 
+                transform: none !important;
                 width: calc(100vw - 20px) !important;
+                max-height: calc(100vh - 280px) !important;
+                padding: 12px !important;
             }
+
+            #chart-container .box-style h3 { 
+                font-size: clamp(12px, 3.5vw, 15px) !important; 
+                margin-bottom: 8px !important;
+            }
+
+            #chart-container .box-style p { 
+                font-size: clamp(10px, 2.8vw, 12px) !important; 
+            }
+
             #chart-container > div:last-child {
                 bottom: 10px !important;
                 left: 10px !important;
                 right: 10px !important;
+                transform: none !important;
                 width: calc(100vw - 20px) !important;
+                padding: 6px 8px !important;
+                gap: 6px !important;
                 flex-wrap: wrap !important;
+                justify-content: center !important;
+            }
+
+            .chart-btn {
+                padding: 6px 12px !important;
+                font-size: clamp(9px, 2.5vw, 11px) !important;
+                flex: 1 1 auto !important;
+                min-width: 80px !important;
+            }
+        }
+
+        /* Landscape Mobile */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .title { 
+                font-size: 0.9em !important; 
+                top: 8px !important; 
+                left: 8px !important; 
+            }
+
+            .nav-container { 
+                top: 8px !important; 
+            }
+
+            .search-container { 
+                top: 50px !important; 
+            }
+
+            .timeline-container { 
+                bottom: 10px !important; 
+                right: 10px !important; 
+                height: 70vh !important; 
+            }
+
+            .legend-container { 
+                bottom: 10px !important; 
+                left: 10px !important;
+            }
+
+            .description-box { 
+                bottom: 60px !important;
+                max-height: calc(100vh - 220px) !important;
+            }
+
+            .stats-box { 
+                top: 90px !important; 
+                max-height: calc(100vh - 200px) !important;
+            }
+
+            .reset-button { 
+                bottom: 10px !important; 
+            }
+
+            #chart-container .box-style { 
+                top: 85px !important; 
+                max-height: calc(100vh - 170px) !important;
+            }
+
+            #chart-container > div:last-child { 
+                bottom: 8px !important; 
             }
         }
     </style>
