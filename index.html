@@ -39,8 +39,8 @@
         }
 
         .landing-content {
-            max-width: min(90vw, 800px);
-            padding: clamp(20px, 5vw, 40px);
+            max-width: 800px;
+            padding: 40px;
             text-align: center;
         }
 
@@ -48,15 +48,15 @@
             font-size: clamp(14px, 2.5vw, 20px);
             line-height: 1.8;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: clamp(10px, 2vh, 15px);
+            margin-bottom: 15px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .unesco-link {
             display: block;
             text-align: center;
-            margin-bottom: clamp(20px, 4vh, 35px);
-            font-size: clamp(12px, 2vw, 16px);
+            margin-bottom: 35px;
+            font-size: clamp(13px, 2vw, 16px);
         }
 
         .unesco-link a {
@@ -75,8 +75,8 @@
             background: rgba(95, 179, 246, 0.2);
             border: 2px solid rgba(95, 179, 246, 0.6);
             color: #5fb3f6;
-            padding: clamp(12px, 2vh, 18px) clamp(30px, 5vw, 45px);
-            font-size: clamp(14px, 2vw, 20px);
+            padding: 18px 45px;
+            font-size: clamp(16px, 2vw, 20px);
             font-weight: 600;
             border-radius: 50px;
             cursor: pointer;
@@ -116,7 +116,7 @@
             top: 0;
             left: 0;
             right: 0;
-            height: clamp(80px, 15vh, 150px);
+            height: 150px;
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
             z-index: 10;
             pointer-events: none;
@@ -124,10 +124,10 @@
 
         .title {
             position: absolute;
-            top: clamp(15px, 3vh, 40px);
-            left: clamp(15px, 3vw, 40px);
+            top: 40px;
+            left: 40px;
             z-index: 20;
-            font-size: clamp(1.2em, 3vw, 2em);
+            font-size: 2em;
             font-weight: 600;
             color: #5fb3f6;
             text-shadow: 0 0 20px rgba(95, 179, 246, 0.4);
@@ -135,14 +135,14 @@
 
         .nav-container {
             position: absolute;
-            top: clamp(15px, 3vh, 30px);
+            top: 30px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 20;
             display: flex;
-            gap: clamp(8px, 1.5vw, 15px);
+            gap: 15px;
             background: rgba(10, 20, 40, 0.8);
-            padding: clamp(6px, 1vh, 8px);
+            padding: 8px;
             border-radius: 30px;
             border: 1px solid rgba(95, 179, 246, 0.3);
             backdrop-filter: blur(10px);
@@ -152,10 +152,10 @@
             background: transparent;
             border: none;
             color: rgba(255, 255, 255, 0.6);
-            padding: clamp(8px, 1.5vh, 10px) clamp(15px, 3vw, 25px);
+            padding: 10px 25px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: clamp(12px, 1.8vw, 14px);
+            font-size: 14px;
             font-weight: 600;
             transition: all 0.3s;
             user-select: none;
@@ -166,20 +166,20 @@
 
         .search-container {
             position: absolute;
-            top: clamp(20px, 4vh, 45px);
-            right: clamp(15px, 4vw, 57px);
+            top: 45px;
+            right: 57px;
             z-index: 20;
-            width: clamp(180px, 30vw, 280px);
+            width: 280px;
         }
 
         .search-input {
             width: 100%;
-            padding: clamp(10px, 1.5vh, 12px) clamp(12px, 2vw, 16px);
+            padding: 12px 16px;
             background: rgba(10, 20, 40, 0.9);
             border: 1px solid rgba(95, 179, 246, 0.3);
             border-radius: 25px;
             color: white;
-            font-size: clamp(12px, 1.8vw, 14px);
+            font-size: 14px;
             outline: none;
             backdrop-filter: blur(10px);
             transition: all 0.3s;
@@ -193,11 +193,11 @@
             top: 100%;
             left: 0;
             right: 0;
-            margin-top: clamp(6px, 1vh, 8px);
+            margin-top: 8px;
             background: rgba(10, 20, 40, 0.95);
             border: 1px solid rgba(95, 179, 246, 0.3);
             border-radius: 12px;
-            max-height: clamp(200px, 30vh, 300px);
+            max-height: 300px;
             overflow-y: auto;
             backdrop-filter: blur(10px);
             display: none;
@@ -207,18 +207,18 @@
         .search-results.show { display: block; }
 
         .search-result-item {
-            padding: clamp(10px, 1.5vh, 12px) clamp(12px, 2vw, 16px);
+            padding: 12px 16px;
             color: rgba(255, 255, 255, 0.8);
             cursor: pointer;
             border-bottom: 1px solid rgba(95, 179, 246, 0.1);
             transition: all 0.2s;
-            font-size: clamp(12px, 1.8vw, 14px);
+            font-size: 14px;
         }
 
         .search-result-item:hover {
             background: rgba(95, 179, 246, 0.2);
             color: #5fb3f6;
-            padding-left: clamp(16px, 3vw, 20px);
+            padding-left: 20px;
         }
 
         #globe-container, #chart-container {
@@ -238,23 +238,22 @@
 
         .tooltip {
             position: absolute;
-            padding: clamp(8px, 1.5vh, 10px) clamp(12px, 2vw, 15px);
+            padding: 10px 15px;
             background: rgba(10, 20, 40, 0.95);
             border: 1px solid rgba(95, 179, 246, 0.3);
             border-radius: 8px;
             color: white;
-            font-size: clamp(12px, 1.8vw, 14px);
+            font-size: 14px;
             pointer-events: none;
             opacity: 0;
             transition: opacity 0.3s;
             z-index: 100;
             backdrop-filter: blur(10px);
-            max-width: min(90vw, 300px);
         }
 
         .tooltip.show { opacity: 1; }
         .tooltip-country { font-weight: 600; color: #5fb3f6; margin-bottom: 3px; }
-        .tooltip-score { color: rgba(255, 255, 255, 0.9); font-size: clamp(11px, 1.6vw, 13px); }
+        .tooltip-score { color: rgba(255, 255, 255, 0.9); font-size: 13px; }
 
         .pisa-term {
             text-decoration: underline;
@@ -267,19 +266,19 @@
 
         .pisa-tooltip {
             position: absolute;
-            padding: clamp(10px, 1.5vh, 12px) clamp(12px, 2vw, 15px);
+            padding: 12px 15px;
             background: rgba(10, 20, 40, 0.98);
             border: 1px solid rgba(95, 179, 246, 0.4);
             border-radius: 8px;
             color: white;
-            font-size: clamp(11px, 1.6vw, 12px);
+            font-size: 12px;
             line-height: 1.5;
             pointer-events: none;
             opacity: 0;
             transition: opacity 0.3s;
             z-index: 1000;
             backdrop-filter: blur(10px);
-            max-width: min(90vw, 280px);
+            max-width: 280px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
@@ -288,8 +287,8 @@
         .box-style {
             color: white;
             background: rgba(10, 20, 40, 0.9);
-            padding: clamp(12px, 2vh, 20px);
-            border-radius: clamp(8px, 1.5vw, 12px);
+            padding: clamp(12px, 3vw, 20px);
+            border-radius: 12px;
             border: 1px solid rgba(95, 179, 246, 0.2);
             backdrop-filter: blur(15px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
@@ -298,61 +297,61 @@
 
         .description-box {
             position: absolute;
-            top: clamp(180px, 25vh, 328px);
-            left: clamp(15px, 3vw, 40px);
-            width: clamp(250px, 35vw, 350px);
-            max-height: clamp(250px, 40vh, calc(100vh - 420px));
+            top: 328px;
+            left: 40px;
+            width: clamp(270px, 90vw, 350px);
+            max-height: calc(100vh - 420px);
         }
 
         .description-box h2 {
-            margin: 0 0 clamp(10px, 2vh, 15px) 0;
-            font-size: clamp(16px, 2.5vw, 24px);
+            margin: 0 0 15px 0;
+            font-size: clamp(18px, 4vw, 24px);
             font-weight: 600;
             color: #5fb3f6;
         }
 
         .description-box p {
-            margin: 0 0 clamp(10px, 1.5vh, 12px) 0;
-            font-size: clamp(12px, 1.6vw, 14px);
+            margin: 0 0 12px 0;
+            font-size: clamp(12px, 1.8vw, 14px);
             line-height: 1.6;
             color: rgba(255, 255, 255, 0.85);
         }
 
         .controls {
-            margin-top: clamp(15px, 2.5vh, 20px);
-            padding-top: clamp(12px, 2vh, 15px);
+            margin-top: 20px;
+            padding-top: 15px;
             border-top: 1px solid rgba(95, 179, 246, 0.2);
-            font-size: clamp(10px, 1.4vw, 12px);
+            font-size: clamp(10px, 1.5vw, 12px);
             color: rgba(255, 255, 255, 0.6);
         }
 
-        .controls div { margin-bottom: clamp(4px, 0.8vh, 5px); }
+        .controls div { margin-bottom: 5px; }
 
         .country-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: clamp(12px, 2vh, 15px);
-            padding-bottom: clamp(8px, 1.5vh, 10px);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
             border-bottom: 1px solid rgba(95, 179, 246, 0.3);
         }
 
         .country-name {
-            font-size: clamp(14px, 2.5vw, 20px);
+            font-size: clamp(16px, 3.5vw, 20px);
             font-weight: 600;
             color: #5fb3f6;
         }
 
         .country-year {
-            font-size: clamp(11px, 1.4vw, 13px);
+            font-size: clamp(11px, 1.5vw, 13px);
             color: rgba(255, 255, 255, 0.6);
         }
 
         .timeline-container {
             position: absolute;
-            bottom: clamp(60px, 10vh, 100px);
-            right: clamp(20px, 8vw, 120px);
-            height: clamp(250px, 40vh, 70vh);
+            bottom: 100px;
+            right: 120px;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -388,46 +387,46 @@
         .year-marker:hover .year-label { color: #5fb3f6; transform: translateX(5px); }
 
         .year-dot {
-            width: clamp(10px, 1.5vw, 12px);
-            height: clamp(10px, 1.5vw, 12px);
+            width: 12px;
+            height: 12px;
             background: #5fb3f6;
             border: 2px solid #5fb3f6;
             border-radius: 50%;
             position: absolute;
-            left: clamp(-4px, -0.75vw, -5px);
+            left: -5px;
             transition: all 0.3s;
             box-shadow: 0 0 10px rgba(95, 179, 246, 0.4);
         }
 
         .year-label {
             color: rgba(255, 255, 255, 0.8);
-            font-size: clamp(14px, 2vw, 16px);
+            font-size: 16px;
             font-weight: 600;
-            margin-left: clamp(20px, 3vw, 25px);
+            margin-left: 25px;
             transition: all 0.3s;
             user-select: none;
         }
 
         .year-marker.active .year-dot { transform: scale(1.8); box-shadow: 0 0 25px rgba(95, 179, 246, 1); }
-        .year-marker.active .year-label { color: #5fb3f6; font-size: clamp(16px, 2.2vw, 18px); }
+        .year-marker.active .year-label { color: #5fb3f6; font-size: 18px; }
 
         .legend-container {
             position: absolute;
-            bottom: clamp(15px, 3vh, 25px);
+            bottom: 25px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 20;
             background: rgba(10, 20, 40, 0.9);
-            padding: clamp(10px, 1.5vh, 12px) clamp(15px, 2.5vw, 20px);
-            border-radius: clamp(8px, 1.5vw, 12px);
+            padding: 12px 20px;
+            border-radius: 12px;
             border: 1px solid rgba(95, 179, 246, 0.3);
             backdrop-filter: blur(10px);
         }
 
-        .legend-title { color: #5fb3f6; font-size: clamp(11px, 1.6vw, 12px); font-weight: 600; margin-bottom: clamp(5px, 1vh, 6px); text-align: center; }
-        .legend-gradient { width: clamp(150px, 25vw, 200px); height: clamp(12px, 1.8vh, 15px); background: linear-gradient(to right, #f7fcb9, #addd8e, #31a354); border-radius: 3px; margin-bottom: clamp(4px, 0.8vh, 5px); }
-        .legend-labels { display: flex; justify-content: space-between; color: rgba(255, 255, 255, 0.7); font-size: clamp(9px, 1.4vw, 10px); }
-        .legend-numbers { display: flex; justify-content: space-between; color: #5fb3f6; font-size: clamp(10px, 1.5vw, 11px); font-weight: 600; margin-top: 2px; }
+        .legend-title { color: #5fb3f6; font-size: 12px; font-weight: 600; margin-bottom: 6px; text-align: center; }
+        .legend-gradient { width: 200px; height: 15px; background: linear-gradient(to right, #f7fcb9, #addd8e, #31a354); border-radius: 3px; margin-bottom: 5px; }
+        .legend-labels { display: flex; justify-content: space-between; color: rgba(255, 255, 255, 0.7); font-size: 10px; }
+        .legend-numbers { display: flex; justify-content: space-between; color: #5fb3f6; font-size: 11px; font-weight: 600; margin-top: 2px; }
 
         .country-path { transition: stroke 0.3s, stroke-width 0.3s; }
         .country-path.selected { stroke: #0099cc !important; stroke-width: 2.5 !important; filter: drop-shadow(0 0 15px rgba(0, 153, 204, 0.7)) !important; }
@@ -436,25 +435,25 @@
 
         .stats-box {
             position: absolute;
-            top: clamp(65px, 10vh, 90px);
-            left: clamp(15px, 3vw, 40px);
-            width: clamp(200px, 30vw, 263px);
-            max-height: clamp(150px, 25vh, calc(100vh - 180px));
+            top: 90px;
+            left: 40px;
+            width: clamp(220px, 90vw, 263px);
+            max-height: calc(100vh - 180px);
             z-index: 15;
         }
 
         .reset-button {
             position: absolute;
-            bottom: clamp(15px, 3vh, 25px);
-            left: clamp(15px, 3vw, 40px);
-            width: clamp(200px, 30vw, 263px);
+            bottom: 25px;
+            left: 40px;
+            width: clamp(220px, 90vw, 263px);
             background: rgba(95, 179, 246, 0.15);
             border: 1px solid rgba(95, 179, 246, 0.4);
             color: #5fb3f6;
-            padding: clamp(10px, 1.5vh, 12px) clamp(15px, 2.5vw, 20px);
-            border-radius: clamp(6px, 1vw, 8px);
+            padding: clamp(10px, 2vw, 12px) clamp(15px, 3vw, 20px);
+            border-radius: 8px;
             cursor: pointer;
-            font-size: clamp(12px, 1.8vw, 14px);
+            font-size: clamp(12px, 2vw, 14px);
             font-weight: 600;
             transition: all 0.3s;
             backdrop-filter: blur(10px);
@@ -465,22 +464,22 @@
         .reset-button:active { transform: scale(0.98); }
 
         .stats-box h3 {
-            margin: 0 0 clamp(12px, 2vh, 15px) 0;
-            font-size: clamp(13px, 2vw, 16px);
+            margin: 0 0 15px 0;
+            font-size: clamp(14px, 2.5vw, 16px);
             font-weight: 600;
             color: #5fb3f6;
         }
 
         .stat-item {
-            margin-bottom: clamp(12px, 2vh, 15px);
-            padding-bottom: clamp(10px, 1.5vh, 12px);
+            margin-bottom: 15px;
+            padding-bottom: 12px;
             border-bottom: 1px solid rgba(95, 179, 246, 0.2);
         }
 
         .stat-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
 
         .stat-label {
-            font-size: clamp(10px, 1.4vw, 12px);
+            font-size: clamp(10px, 1.5vw, 12px);
             color: rgba(255, 255, 255, 0.6);
             margin-bottom: 4px;
             text-transform: uppercase;
@@ -491,7 +490,7 @@
         .stat-lowest { color: #ff4444; }
 
         .stat-country {
-            font-size: clamp(12px, 1.6vw, 14px);
+            font-size: clamp(12px, 1.8vw, 14px);
             font-weight: 600;
             color: white;
             margin-bottom: 3px;
@@ -506,72 +505,510 @@
             background: transparent;
             border: none;
             color: rgba(255, 255, 255, 0.6);
-            padding: clamp(8px, 1.2vh, 10px) clamp(15px, 2.5vw, 20px);
+            padding: 8px 20px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: clamp(12px, 1.6vw, 14px);
+            font-size: 14px;
             font-weight: 600;
             transition: all 0.3s;
         }
 
         .chart-btn.active { background: rgba(95, 179, 246, 0.3); color: #5fb3f6; }
 
-        @media (max-width: 768px) {
-            .description-box {
-                top: clamp(140px, 18vh, 180px);
-                left: 10px;
-                right: 10px;
-                width: calc(100vw - 20px);
-                max-height: clamp(200px, 30vh, 300px);
+        /* Mobile Phone Optimizations - FIXED LAYOUT */
+        @media (max-width: 480px) {
+            /* Prevent any element from going off screen */
+            body {
+                overflow-x: hidden !important;
             }
-            
-            .stats-box {
-                top: clamp(60px, 8vh, 75px);
-                left: 10px;
-                right: 10px;
-                width: calc(100vw - 20px);
-                max-height: clamp(120px, 20vh, 150px);
+
+            /* Header Elements - Stack vertically with proper spacing */
+            .title { 
+                font-size: 1.1em !important; 
+                top: 10px !important; 
+                left: 12px !important;
+                right: 12px !important;
+                width: calc(100vw - 24px) !important;
+                text-align: center !important;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
-            
-            .reset-button {
-                left: 10px;
-                right: 10px;
-                width: calc(100vw - 20px);
+
+            .nav-container { 
+                top: 45px !important;
+                left: 12px !important;
+                right: 12px !important;
+                transform: none !important;
+                width: calc(100vw - 24px) !important;
+                gap: 8px !important;
+                padding: 6px !important;
+                justify-content: center;
             }
-            
-            .timeline-container {
-                bottom: clamp(80px, 12vh, 100px);
-                right: clamp(10px, 3vw, 20px);
-                height: clamp(200px, 35vh, 300px);
+
+            .nav-btn { 
+                padding: 10px 20px !important; 
+                font-size: 13px !important;
+                min-height: 44px !important;
+                flex: 1;
+                max-width: 50%;
             }
-            
-            .search-container {
-                right: 10px;
-                width: clamp(150px, 40vw, 200px);
+
+            .search-container { 
+                top: 100px !important; 
+                right: 12px !important; 
+                left: 12px !important; 
+                width: calc(100vw - 24px) !important;
             }
-            
-            .legend-container {
-                bottom: clamp(80px, 12vh, 100px);
-                padding: clamp(8px, 1.2vh, 10px) clamp(12px, 2vw, 15px);
+
+            .search-input {
+                padding: 12px 16px !important;
+                font-size: 14px !important;
+                min-height: 44px !important;
             }
-            
+
+            .search-results {
+                max-height: 200px !important;
+            }
+
+            .search-result-item {
+                padding: 14px 16px !important;
+                font-size: 14px !important;
+                min-height: 44px !important;
+            }
+
+            /* Fade Overlay */
+            .fade-top-overlay { 
+                height: 155px !important; 
+            }
+
+            /* Description Box - Below search with proper spacing */
+            .description-box { 
+                top: 155px !important;
+                left: 12px !important;
+                right: 12px !important;
+                width: calc(100vw - 24px) !important;
+                max-height: calc(100vh - 460px) !important;
+                min-height: 150px !important;
+                padding: 14px !important;
+                overflow-y: auto !important;
+                z-index: 11 !important;
+            }
+
+            .description-box h2 {
+                font-size: 16px !important;
+                margin-bottom: 10px !important;
+            }
+
+            .description-box p {
+                font-size: 12px !important;
+                margin-bottom: 8px !important;
+                line-height: 1.5 !important;
+            }
+
+            .controls {
+                font-size: 10px !important;
+                margin-top: 10px !important;
+                padding-top: 10px !important;
+            }
+
+            /* Stats Box - Below search with proper spacing */
+            .stats-box { 
+                top: 155px !important; 
+                left: 12px !important; 
+                right: 12px !important;
+                width: calc(100vw - 24px) !important;
+                max-height: calc(100vh - 460px) !important;
+                min-height: 150px !important;
+                padding: 14px !important;
+                overflow-y: auto !important;
+                z-index: 11 !important;
+            }
+
+            .stats-box h3 {
+                font-size: 14px !important;
+                margin-bottom: 12px !important;
+            }
+
+            .stat-item {
+                margin-bottom: 12px !important;
+                padding-bottom: 10px !important;
+            }
+
+            .stat-label {
+                font-size: 10px !important;
+            }
+
+            .stat-country {
+                font-size: 13px !important;
+                min-height: 24px !important;
+            }
+
+            .stat-score {
+                font-size: 11px !important;
+            }
+
+            /* Timeline - Horizontal at bottom, above legend */
+            .timeline-container { 
+                bottom: 120px !important;
+                right: 12px !important;
+                left: 12px !important;
+                height: auto !important;
+                width: calc(100vw - 24px) !important;
+                flex-direction: row !important;
+                z-index: 12 !important;
+            }
+
+            .timeline-line {
+                width: 100% !important;
+                height: 2px !important;
+            }
+
+            .timeline-years {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .year-marker {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .year-dot {
+                position: relative !important;
+                left: 0 !important;
+                top: -5px !important;
+                width: 10px !important;
+                height: 10px !important;
+            }
+
+            .year-label {
+                margin-left: 0 !important;
+                margin-top: 8px !important;
+                font-size: 11px !important;
+                writing-mode: horizontal-tb !important;
+            }
+
+            .year-marker.active .year-label {
+                font-size: 13px !important;
+            }
+
+            /* Reset Button - Above timeline */
+            .reset-button { 
+                bottom: 175px !important; 
+                left: 12px !important; 
+                right: 12px !important;
+                width: calc(100vw - 24px) !important;
+                padding: 14px 16px !important;
+                font-size: 14px !important;
+                min-height: 48px !important;
+                z-index: 12 !important;
+            }
+
+            /* Legend - At very bottom */
+            .legend-container { 
+                bottom: 10px !important; 
+                left: 12px !important;
+                right: 12px !important;
+                transform: none !important;
+                width: calc(100vw - 24px) !important;
+                padding: 10px 12px !important;
+                z-index: 13 !important;
+            }
+
             .legend-gradient {
-                width: clamp(120px, 30vw, 160px);
+                width: 100% !important;
+                max-width: 250px !important;
+                margin: 0 auto 5px auto !important;
+            }
+
+            .legend-title {
+                font-size: 11px !important;
+            }
+
+            .legend-labels {
+                font-size: 10px !important;
+            }
+
+            .legend-numbers {
+                font-size: 11px !important;
+            }
+
+            /* Chart Container - Similar layout */
+            #chart-container .box-style { 
+                left: 12px !important; 
+                right: 12px !important;
+                top: 155px !important; 
+                transform: none !important;
+                width: calc(100vw - 24px) !important;
+                max-height: calc(100vh - 340px) !important;
+                min-height: 120px !important;
+                padding: 14px !important;
+                overflow-y: auto !important;
+                z-index: 11 !important;
+            }
+
+            #chart-container .box-style h3 { 
+                font-size: 14px !important; 
+                margin-bottom: 10px !important;
+            }
+
+            #chart-container .box-style p { 
+                font-size: 12px !important; 
+                line-height: 1.5 !important;
+            }
+
+            #chart-container > div:last-child {
+                bottom: 10px !important;
+                left: 12px !important;
+                right: 12px !important;
+                transform: none !important;
+                width: calc(100vw - 24px) !important;
+                padding: 8px !important;
+                gap: 6px !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                z-index: 13 !important;
+            }
+
+            .chart-btn {
+                padding: 10px 14px !important;
+                font-size: 11px !important;
+                flex: 1 1 auto !important;
+                min-width: 85px !important;
+                min-height: 40px !important;
+            }
+
+            /* Tooltip */
+            #tooltip {
+                padding: 10px 12px !important;
+                font-size: 12px !important;
+                max-width: 200px !important;
+                z-index: 150 !important;
+            }
+
+            .tooltip-country {
+                font-size: 13px !important;
+            }
+
+            .tooltip-score {
+                font-size: 11px !important;
+            }
+
+            .pisa-tooltip {
+                max-width: calc(100vw - 40px) !important;
+                font-size: 11px !important;
+                z-index: 1001 !important;
+            }
+
+            /* Landing Page Mobile */
+            .landing-paragraph {
+                font-size: 15px !important;
+                line-height: 1.7 !important;
+                padding: 0 10px !important;
+            }
+
+            .landing-content {
+                padding: 20px !important;
+            }
+
+            .unesco-link {
+                margin-bottom: 25px !important;
+            }
+
+            .unesco-link a {
+                font-size: 13px !important;
+            }
+
+            .uncover-btn {
+                padding: 16px 35px !important;
+                font-size: 16px !important;
+                min-height: 52px !important;
+            }
+
+            /* Globe and Chart positioning */
+            #globe-container, #chart-container {
+                padding-top: 0 !important;
+            }
+
+            #globe, #chart {
+                margin-top: 0 !important;
+            }
+
+            /* Ensure SVG doesn't overflow */
+            svg {
+                max-width: 100vw !important;
+                overflow: visible !important;
             }
         }
 
-        @media (max-width: 480px) {
+        /* Tablet Adjustments */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .title { 
+                font-size: 1.5em !important; 
+                top: 15px !important; 
+                left: 20px !important;
+                right: 20px !important;
+            }
+
+            .nav-container { 
+                top: 60px !important;
+                left: 20px !important;
+                right: 20px !important;
+                transform: none !important;
+                width: calc(100vw - 40px) !important;
+            }
+
+            .search-container { 
+                top: 115px !important; 
+                right: 20px !important; 
+                left: 20px !important;
+                width: calc(100vw - 40px) !important;
+            }
+
+            .fade-top-overlay {
+                height: 170px !important;
+            }
+
+            .timeline-container {
+                bottom: 80px !important;
+                right: 20px !important;
+                height: 50vh !important;
+            }
+
+            .legend-container {
+                bottom: 15px !important;
+                left: 20px !important;
+                transform: none !important;
+                width: auto !important;
+                max-width: 350px !important;
+            }
+
+            .description-box {
+                top: 170px !important;
+                left: 20px !important;
+                width: calc(50vw - 30px) !important;
+                max-width: 350px !important;
+                max-height: calc(100vh - 340px) !important;
+            }
+
+            .stats-box {
+                top: 170px !important;
+                left: 20px !important;
+                width: calc(50vw - 30px) !important;
+                max-width: 320px !important;
+                max-height: calc(100vh - 340px) !important;
+            }
+
+            .reset-button {
+                bottom: 100px !important;
+                left: 20px !important;
+                width: calc(50vw - 30px) !important;
+                max-width: 320px !important;
+            }
+
+            #chart-container .box-style {
+                top: 170px !important;
+                left: 20px !important;
+                width: calc(50vw - 30px) !important;
+                max-width: 350px !important;
+                max-height: calc(100vh - 280px) !important;
+            }
+
+            #chart-container > div:last-child {
+                bottom: 15px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                width: auto !important;
+            }
+        }
+
+        /* Extra Small Mobile - Additional tweaks for very small screens */
+        @media (max-width: 380px) {
             .title {
-                font-size: clamp(1em, 4vw, 1.3em);
+                font-size: 1em !important;
             }
-            
+
             .nav-btn {
-                padding: clamp(6px, 1vh, 8px) clamp(10px, 2.5vw, 15px);
-                font-size: clamp(11px, 2vw, 12px);
+                font-size: 12px !important;
+                padding: 8px 15px !important;
             }
-            
-            .description-box, .stats-box {
-                font-size: clamp(11px, 1.8vw, 12px);
+
+            .description-box,
+            .stats-box {
+                max-height: calc(100vh - 480px) !important;
+            }
+
+            .chart-btn {
+                font-size: 10px !important;
+                min-width: 75px !important;
+                padding: 8px 10px !important;
+            }
+
+            .year-label {
+                font-size: 10px !important;
+            }
+
+            .year-marker.active .year-label {
+                font-size: 11px !important;
+            }
+        }
+
+        /* Landscape Mobile */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .title { 
+                font-size: 1em !important; 
+                top: 8px !important; 
+                left: 12px !important; 
+            }
+
+            .nav-container { 
+                top: 8px !important;
+                gap: 6px !important;
+                padding: 5px !important;
+            }
+
+            .nav-btn {
+                padding: 8px 16px !important;
+                font-size: 12px !important;
+            }
+
+            .search-container { 
+                top: 50px !important;
+                right: 12px !important;
+                left: 12px !important;
+            }
+
+            .timeline-container { 
+                bottom: 12px !important; 
+                right: 100px !important; 
+                height: calc(100vh - 80px) !important; 
+            }
+
+            .legend-container { 
+                bottom: 12px !important; 
+                left: 12px !important;
+            }
+
+            .description-box,
+            .stats-box { 
+                top: 95px !important;
+                max-height: calc(100vh - 160px) !important;
+            }
+
+            .reset-button { 
+                bottom: 12px !important; 
+            }
+
+            #chart-container .box-style { 
+                top: 95px !important; 
+                max-height: calc(100vh - 160px) !important;
+            }
+
+            #chart-container > div:last-child { 
+                bottom: 10px !important; 
             }
         }
     </style>
@@ -635,7 +1072,7 @@
                     <div class="stat-score" id="highest-score">-</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-label stat-lowest">📉 Lowest Performance</div>
+                    <div class="stat-label stat-lowest">📍 Lowest Performance</div>
                     <div class="stat-country" id="lowest-country">-</div>
                     <div class="stat-score" id="lowest-score">-</div>
                 </div>
@@ -664,12 +1101,12 @@
         </div>
 
         <div id="chart-container">
-            <div class="box-style" style="position: absolute; left: clamp(15px, 3vw, 40px); top: 50%; transform: translateY(-50%); width: clamp(180px, 25vw, 300px); max-height: 70vh; z-index: 15;" id="scatter-description">
-                <h3 style="margin: 0 0 clamp(10px, 1.5vh, 12px) 0; font-size: clamp(14px, 2vw, 16px); font-weight: 600; color: #5fb3f6;">Study Hours</h3>
-                <p style="margin: 0; font-size: clamp(12px, 1.6vw, 13px); line-height: 1.6;">Students who spend more time studying generally achieve higher exam scores. The trend shows a positive relationship, as study hours increase, exam performance improves.</p>
+            <div class="box-style" style="position: absolute; left: 40px; top: 50%; transform: translateY(-50%); width: clamp(200px, 20vw, 300px); max-height: 70vh; z-index: 15;" id="scatter-description">
+                <h3 style="margin: 0 0 12px 0; font-size: 16px; font-weight: 600; color: #5fb3f6;">Study Hours</h3>
+                <p style="margin: 0; font-size: 13px; line-height: 1.6;">Students who spend more time studying generally achieve higher exam scores. The trend shows a positive relationship, as study hours increase, exam performance improves.</p>
             </div>
             <svg id="chart"></svg>
-            <div style="position: absolute; bottom: clamp(30px, 5vh, 50px); left: 50%; transform: translateX(-50%); z-index: 20; display: flex; gap: clamp(8px, 1.5vw, 10px); background: rgba(10, 20, 40, 0.9); padding: clamp(8px, 1.2vh, 10px) clamp(12px, 2vw, 15px); border-radius: 25px; border: 1px solid rgba(95, 179, 246, 0.3); flex-wrap: wrap; justify-content: center;">
+            <div style="position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); z-index: 20; display: flex; gap: 10px; background: rgba(10, 20, 40, 0.9); padding: 10px 15px; border-radius: 25px; border: 1px solid rgba(95, 179, 246, 0.3);">
                 <button id="btn-study" class="chart-btn active">Study Hours</button>
                 <button id="btn-social" class="chart-btn">Social Media Hours</button>
                 <button id="btn-sleep" class="chart-btn">Sleep Hours</button>
@@ -690,7 +1127,9 @@
         const Config = {
             width: window.innerWidth,
             height: window.innerHeight,
-            baseScale: Math.min(window.innerWidth, window.innerHeight) * 0.35,
+            baseScale: window.innerWidth <= 480 ? Math.min(window.innerWidth, window.innerHeight) * 0.35 :
+                       window.innerWidth <= 768 ? Math.min(window.innerWidth, window.innerHeight) * 0.38 :
+                       Math.min(window.innerWidth, window.innerHeight) * 0.4,
             colors: { primary: '#5fb3f6', gold: '#ffd700', red: '#ff4444', cyan: '#0099cc', darkBg: '#0d1b2e', darkStroke: '#1a3a52' }
         };
 
@@ -976,11 +1415,7 @@
                 { axis: 'Secondary Enrollment', value: metrics['Secondary Enrollment'], raw: metrics.raw['Secondary Enrollment'] }
             ];
 
-            const isMobile = window.innerWidth < 768;
-            const w = isMobile ? Math.min(window.innerWidth - 40, 180) : Math.min(200, window.innerWidth * 0.15);
-            const h = w;
-            const r = Math.min(w, h) / 2 - (isMobile ? 20 : 25);
-            
+            const w = 200, h = 200, r = Math.min(w, h) / 2 - 25;
             const svg = d3.select(container).append('svg')
                 .attr('width', w).attr('height', h)
                 .style('display', 'block').style('margin', '0 auto')
@@ -1000,21 +1435,20 @@
                 svg.append('line').attr('x1', 0).attr('y1', 0).attr('x2', x).attr('y2', y)
                     .attr('stroke', 'rgba(95, 179, 246, 0.2)').attr('stroke-width', 1);
 
-                const labelRadius = r + (isMobile ? 6 : 8);
+                const labelRadius = r + 8;
                 const lx = labelRadius * Math.cos(a), ly = labelRadius * Math.sin(a);
                 const parts = d.axis.split(' ');
-                const fontSize = isMobile ? '7px' : '8px';
 
                 if (parts.length > 1) {
                     svg.append('text').attr('x', lx).attr('y', ly - 5)
-                        .attr('text-anchor', 'middle').attr('font-size', fontSize)
+                        .attr('text-anchor', 'middle').attr('font-size', '8px')
                         .attr('fill', Config.colors.primary).attr('font-weight', '600').text(parts[0]);
                     svg.append('text').attr('x', lx).attr('y', ly + 5)
-                        .attr('text-anchor', 'middle').attr('font-size', fontSize)
+                        .attr('text-anchor', 'middle').attr('font-size', '8px')
                         .attr('fill', Config.colors.primary).attr('font-weight', '600').text(parts.slice(1).join(' '));
                 } else {
                     svg.append('text').attr('x', lx).attr('y', ly)
-                        .attr('text-anchor', 'middle').attr('dy', '0.3em').attr('font-size', fontSize)
+                        .attr('text-anchor', 'middle').attr('dy', '0.3em').attr('font-size', '8px')
                         .attr('fill', Config.colors.primary).attr('font-weight', '600').text(d.axis);
                 }
             });
@@ -1035,12 +1469,12 @@
             data.forEach((d, i) => {
                 const a = angle * i - Math.PI / 2;
                 const x = scale(d.value) * Math.cos(a), y = scale(d.value) * Math.sin(a);
-                svg.append('circle').attr('cx', x).attr('cy', y).attr('r', isMobile ? 1.5 : 2)
+                svg.append('circle').attr('cx', x).attr('cy', y).attr('r', 2)
                     .attr('fill', Config.colors.primary).attr('stroke', 'white').attr('stroke-width', 1);
             });
 
             const legend = document.createElement('div');
-            legend.style.cssText = `margin-top: ${isMobile ? '6px' : '8px'}; font-size: ${isMobile ? '10px' : '11px'}; line-height: 1.5; color: rgba(255, 255, 255, 0.85); text-align: left;`;
+            legend.style.cssText = 'margin-top: 8px; font-size: 11px; line-height: 1.5; color: rgba(255, 255, 255, 0.85); text-align: left;';
             legend.innerHTML = `<strong style="color: #5fb3f6; display: block; margin-bottom: 5px;">Metrics:</strong>
                 • <strong>Internet User by Population:</strong> ${data[0].raw}<br>
                 • <strong>Happiness Level (1-10):</strong> ${data[1].raw}<br>
@@ -1229,18 +1663,24 @@
             };
 
             const desc = descriptions[activeId];
-            const fontSize = window.innerWidth < 768 ? 'clamp(13px, 2vw, 14px)' : 'clamp(14px, 2vw, 16px)';
-            const textSize = window.innerWidth < 768 ? 'clamp(11px, 1.8vw, 12px)' : 'clamp(12px, 1.6vw, 13px)';
-            
             document.getElementById('scatter-description').innerHTML = `
-                <h3 style="margin: 0 0 clamp(10px, 1.5vh, 12px) 0; font-size: ${fontSize}; font-weight: 600; color: #5fb3f6;">${desc.title}</h3>
-                <p style="margin: 0; font-size: ${textSize}; line-height: 1.6;">${desc.text}</p>`;
+                <h3 style="margin: 0 0 12px 0; font-size: 16px; font-weight: 600; color: #5fb3f6;">${desc.title}</h3>
+                <p style="margin: 0; font-size: 13px; line-height: 1.6;">${desc.text}</p>`;
         }
 
         window.addEventListener('resize', () => {
             Config.width = window.innerWidth;
             Config.height = window.innerHeight;
-            Config.baseScale = Math.min(Config.width, Config.height) * 0.35;
+            
+            // Adjust scale based on screen size - smaller on mobile
+            if (window.innerWidth <= 480) {
+                Config.baseScale = Math.min(Config.width, Config.height) * 0.35;
+            } else if (window.innerWidth <= 768) {
+                Config.baseScale = Math.min(Config.width, Config.height) * 0.38;
+            } else {
+                Config.baseScale = Math.min(Config.width, Config.height) * 0.4;
+            }
+            
             els.globe.attr('width', Config.width).attr('height', Config.height);
             projection.scale(Config.baseScale).translate([Config.width / 2, Config.height / 2]);
             d3.select('#globe-circle').attr('cx', Config.width / 2).attr('cy', Config.height / 2).attr('r', Config.baseScale);
@@ -1250,6 +1690,19 @@
                 drawScatterPlot(state.scatterData, state.currentVariable);
             }
         });
+
+        // Initial scale adjustment for mobile
+        function adjustInitialScale() {
+            if (window.innerWidth <= 480) {
+                Config.baseScale = Math.min(Config.width, Config.height) * 0.35;
+                projection.scale(Config.baseScale);
+                d3.select('#globe-circle').attr('r', Config.baseScale);
+            } else if (window.innerWidth <= 768) {
+                Config.baseScale = Math.min(Config.width, Config.height) * 0.38;
+                projection.scale(Config.baseScale);
+                d3.select('#globe-circle').attr('r', Config.baseScale);
+            }
+        }
 
         function loadScatterData() {
             fetch('https://raw.githubusercontent.com/astanaa/Data_Visualization_Project/refs/heads/main/Dataset/Student_Habits_Dataset.csv')
@@ -1265,26 +1718,45 @@
             const validData = data.filter(d => d[variable] != null && d['exam_score'] != null && !isNaN(d[variable]) && !isNaN(d['exam_score']));
             if (validData.length === 0) { console.error('No valid data for scatter plot'); return; }
 
-            const isMobile = window.innerWidth < 768;
-            const descBoxWidth = isMobile ? Math.min(window.innerWidth - 30, 200) : Math.min(300, Config.width * 0.22);
-            const availableWidth = Config.width - descBoxWidth - (isMobile ? 30 : 80);
-            const plotWidth = Math.max(Math.min(availableWidth * 0.85, isMobile ? Config.width * 0.9 : 1000), isMobile ? 300 : 400);
-            const plotHeight = Math.max(Math.min(Config.height * (isMobile ? 0.5 : 0.55), isMobile ? 400 : 550), isMobile ? 300 : 350);
-            const margin = { 
-                top: isMobile ? 20 : 30, 
-                right: isMobile ? 20 : 30, 
-                bottom: isMobile ? 40 : 50, 
-                left: isMobile ? 45 : 60 
-            };
+            // Adjust dimensions based on screen size
+            let descBoxWidth, availableWidth, plotWidth, plotHeight, margin, centerX, centerY;
+            
+            if (window.innerWidth <= 480) {
+                // Mobile layout - chart takes more vertical space
+                descBoxWidth = 0;
+                availableWidth = Config.width - 24;
+                plotWidth = Math.min(availableWidth, 400);
+                plotHeight = Math.min(Config.height * 0.45, 350);
+                margin = { top: 20, right: 20, bottom: 45, left: 50 };
+                centerX = Config.width / 2;
+                centerY = Config.height / 2 + 30;
+            } else if (window.innerWidth <= 768) {
+                // Tablet layout
+                descBoxWidth = Math.min(280, Config.width * 0.3);
+                availableWidth = Config.width - descBoxWidth - 60;
+                plotWidth = Math.min(availableWidth * 0.9, 600);
+                plotHeight = Math.min(Config.height * 0.55, 450);
+                margin = { top: 25, right: 25, bottom: 45, left: 55 };
+                centerX = descBoxWidth + (Config.width - descBoxWidth) / 2;
+                centerY = Config.height / 2 + 20;
+            } else {
+                // Desktop layout
+                descBoxWidth = Math.min(350, Config.width * 0.25);
+                availableWidth = Config.width - descBoxWidth - 80;
+                plotWidth = Math.max(Math.min(availableWidth * 0.9, 1200), 400);
+                plotHeight = Math.max(Math.min(Config.height * 0.60, 600), 350);
+                margin = { top: 30, right: 30, bottom: 50, left: 60 };
+                centerX = Math.max(descBoxWidth + 40, descBoxWidth + (Config.width - descBoxWidth - plotWidth) / 2);
+                centerY = (Config.height - plotHeight) / 2;
+            }
+
             const width = plotWidth - margin.left - margin.right;
             const height = plotHeight - margin.top - margin.bottom;
-            const centerX = isMobile ? (Config.width - plotWidth) / 2 : Math.max(descBoxWidth + 40, descBoxWidth + (Config.width - descBoxWidth - plotWidth) / 2);
-            const centerY = (Config.height - plotHeight) / 2;
 
             els.chart.selectAll('*').remove();
 
             const g = els.chart.attr('width', Config.width).attr('height', Config.height)
-                .append('g').attr('transform', `translate(${centerX + margin.left},${centerY + margin.top})`);
+                .append('g').attr('transform', `translate(${centerX - width/2 + margin.left},${centerY - height/2 + margin.top})`);
 
             const xScale = d3.scaleLinear().domain([0, d3.max(validData, d => d[variable]) * 1.1]).range([0, width]);
             const yScale = d3.scaleLinear().domain([0, d3.max(validData, d => d['exam_score']) * 1.05]).range([height, 0]);
@@ -1295,37 +1767,47 @@
                 'sleep_hours': 'Sleep Hours Per Day'
             };
             const xAxisLabel = variableLabels[variable] || variable;
-            const axisFontSize = isMobile ? '12px' : '16px';
-            const labelOffset = isMobile ? 35 : 40;
 
-            g.append('g').attr('transform', `translate(0,${height})`).call(d3.axisBottom(xScale).ticks(isMobile ? 5 : 7))
+            // Adjust font sizes for mobile
+            const axisFontSize = window.innerWidth <= 480 ? '13px' : '16px';
+            const tickFontSize = window.innerWidth <= 480 ? '10px' : '11px';
+
+            g.append('g').attr('transform', `translate(0,${height})`).call(d3.axisBottom(xScale).ticks(window.innerWidth <= 480 ? 5 : 7))
                 .attr('color', 'rgba(255, 255, 255, 0.6)')
-                .append('text').attr('x', width / 2).attr('y', labelOffset).attr('fill', '#5fb3f6')
-                .attr('text-anchor', 'middle').attr('font-size', axisFontSize).attr('font-weight', '600').text(xAxisLabel);
+                .selectAll('text').attr('font-size', tickFontSize);
+            
+            g.append('g').select('.domain').remove();
+            
+            g.append('text').attr('x', width / 2).attr('y', height + (window.innerWidth <= 480 ? 35 : 40))
+                .attr('fill', '#5fb3f6').attr('text-anchor', 'middle').attr('font-size', axisFontSize)
+                .attr('font-weight', '600').text(xAxisLabel);
 
-            g.append('g').call(d3.axisLeft(yScale).ticks(isMobile ? 5 : 7)).attr('color', 'rgba(255, 255, 255, 0.6)')
-                .append('text').attr('transform', 'rotate(-90)').attr('x', -height / 2).attr('y', isMobile ? -40 : -45)
+            g.append('g').call(d3.axisLeft(yScale).ticks(window.innerWidth <= 480 ? 5 : 7))
+                .attr('color', 'rgba(255, 255, 255, 0.6)')
+                .selectAll('text').attr('font-size', tickFontSize);
+            
+            g.append('text').attr('transform', 'rotate(-90)').attr('x', -height / 2)
+                .attr('y', -(window.innerWidth <= 480 ? 38 : 45))
                 .attr('fill', '#5fb3f6').attr('text-anchor', 'middle').attr('font-size', axisFontSize)
                 .attr('font-weight', '600').text('Exam Score');
 
             g.insert('rect', ':first-child')
-                .attr('x', -margin.left - (isMobile ? 10 : 20)).attr('y', -margin.top - (isMobile ? 10 : 20))
-                .attr('width', plotWidth + (isMobile ? 20 : 40)).attr('height', plotHeight + (isMobile ? 20 : 40))
+                .attr('x', -margin.left - 15).attr('y', -margin.top - 15)
+                .attr('width', plotWidth + 30).attr('height', plotHeight + 30)
                 .attr('fill', 'rgb(10, 20, 40)').attr('stroke', 'rgba(95, 179, 246, 0.3)')
                 .attr('stroke-width', 1.5).attr('rx', 8);
 
             g.append('g').attr('class', 'grid').attr('opacity', 0.1)
                 .call(d3.axisLeft(yScale).tickSize(-width).tickFormat(''));
 
-            const dotRadius = isMobile ? 4 : 5;
-            const hoverRadius = isMobile ? 6 : 7;
-
+            const dotRadius = window.innerWidth <= 480 ? 4 : 5;
+            
             g.selectAll('.dot').data(validData).enter().append('circle').attr('class', 'dot')
                 .attr('cx', d => xScale(d[variable])).attr('cy', d => yScale(d['exam_score'])).attr('r', dotRadius)
                 .attr('fill', d => d['gender'] === 'Male' ? '#5fb3f6' : '#ff6b9d')
                 .attr('opacity', 0.7).attr('stroke', 'white').attr('stroke-width', 1.5)
                 .on('mouseover', function(e, d) {
-                    d3.select(this).attr('r', hoverRadius).attr('opacity', 1);
+                    d3.select(this).attr('r', dotRadius + 2).attr('opacity', 1);
                     const tooltip = d3.select('#tooltip');
                     tooltip.select('.tooltip-country').text(`${d['gender']} | ${xAxisLabel}: ${d[variable].toFixed(1)}`);
                     tooltip.select('.tooltip-score').text(`Exam Score: ${d['exam_score'].toFixed(1)}`);
@@ -1337,39 +1819,37 @@
                     d3.select('#tooltip').classed('show', false);
                 });
 
-            const titleFontSize = isMobile ? '16px' : '22px';
-            const titleY = isMobile ? centerY + 15 : centerY + 20;
+            // Title - adjust position for mobile
+            const titleY = window.innerWidth <= 480 ? centerY - height/2 - 30 : centerY + 20;
+            const titleFontSize = window.innerWidth <= 480 ? '16px' : '22px';
             
-            els.chart.append('text').attr('x', centerX + plotWidth / 2).attr('y', titleY)
+            els.chart.append('text').attr('x', Config.width / 2).attr('y', titleY)
                 .attr('text-anchor', 'middle').attr('fill', '#5fb3f6').attr('font-size', titleFontSize)
                 .attr('font-weight', '600').text(`${xAxisLabel} vs Exam Score`);
 
-            const legendX = centerX + plotWidth - (isMobile ? 100 : 150);
-            const legendY = centerY + (isMobile ? 35 : 50);
-            const legendWidth = isMobile ? 100 : 130;
-            const legendHeight = isMobile ? 60 : 70;
+            // Legend - adjust for mobile
+            if (window.innerWidth > 480) {
+                const legendX = centerX + width / 2 - 80;
+                const legendY = centerY - height / 2 + 30;
 
-            els.chart.append('rect').attr('x', legendX - (isMobile ? 10 : 15)).attr('y', legendY - (isMobile ? 15 : 20))
-                .attr('width', legendWidth).attr('height', legendHeight).attr('fill', 'rgb(10, 20, 40)')
-                .attr('stroke', 'rgba(95, 179, 246, 0.3)').attr('stroke-width', 1.5).attr('rx', 8);
+                els.chart.append('rect').attr('x', legendX - 15).attr('y', legendY - 20)
+                    .attr('width', 130).attr('height', 70).attr('fill', 'rgb(10, 20, 40)')
+                    .attr('stroke', 'rgba(95, 179, 246, 0.3)').attr('stroke-width', 1.5).attr('rx', 8);
 
-            const legendDotRadius = isMobile ? 4 : 5;
-            const legendTextOffset = isMobile ? 15 : 20;
-            const legendTextSize = isMobile ? '12px' : '13px';
-            const legendSpacing = isMobile ? 25 : 30;
+                els.chart.append('circle').attr('cx', legendX).attr('cy', legendY).attr('r', 5)
+                    .attr('fill', '#5fb3f6').attr('opacity', 0.7);
+                els.chart.append('text').attr('x', legendX + 20).attr('y', legendY + 5)
+                    .attr('fill', 'rgba(255, 255, 255, 0.8)').attr('font-size', '13px').text('Male');
 
-            els.chart.append('circle').attr('cx', legendX).attr('cy', legendY).attr('r', legendDotRadius)
-                .attr('fill', '#5fb3f6').attr('opacity', 0.7);
-            els.chart.append('text').attr('x', legendX + legendTextOffset).attr('y', legendY + 5)
-                .attr('fill', 'rgba(255, 255, 255, 0.8)').attr('font-size', legendTextSize).text('Male');
-
-            els.chart.append('circle').attr('cx', legendX).attr('cy', legendY + legendSpacing).attr('r', legendDotRadius)
-                .attr('fill', '#ff6b9d').attr('opacity', 0.7);
-            els.chart.append('text').attr('x', legendX + legendTextOffset).attr('y', legendY + legendSpacing + 5)
-                .attr('fill', 'rgba(255, 255, 255, 0.8)').attr('font-size', legendTextSize).text('Female');
+                els.chart.append('circle').attr('cx', legendX).attr('cy', legendY + 30).attr('r', 5)
+                    .attr('fill', '#ff6b9d').attr('opacity', 0.7);
+                els.chart.append('text').attr('x', legendX + 20).attr('y', legendY + 35)
+                    .attr('fill', 'rgba(255, 255, 255, 0.8)').attr('font-size', '13px').text('Female');
+            }
         }
 
         setupGlobe();
+        adjustInitialScale();
         loadData();
         loadScatterData();
         setupPisaTooltip();
